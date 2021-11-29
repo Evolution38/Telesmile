@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:telesmile/blind.dart';
+import 'package:telesmile/contactus.dart';
 import 'package:telesmile/drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,30 +28,17 @@ class _HomePageState extends State<HomePage> {
         elevation: 0.0,
       ),
       drawer: MyDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
-          // backgroundColor: Color('0xFFFCB117'),
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.people), label: 'About Us'),
-            BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
-          ]),
       body: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(
               height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Commited to excel in Oral health care for',
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
-              ],
+            Text(
+              'Commited to excel in Oral health care for',
+              style: TextStyle(
+                fontSize: 18,
+              ),
             ),
             Text(
               '"Everyone in the society"',
@@ -76,7 +64,7 @@ class _HomePageState extends State<HomePage> {
                       oral: 'Blind'),
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => BlindPage()));
+                        MaterialPageRoute(builder: (context) => Blind()));
                   },
                 ),
                 Orals(
@@ -103,9 +91,22 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 20,
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ContactUs()));
+              },
+              icon: Icon(
+                Icons.call,
+                color: Colors.black,
+              ),
+              style: ElevatedButton.styleFrom(
+                  primary: Color(0xFFFCB117),
+                  minimumSize: Size(250, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  )),
+              label: Text(
                 'Contact Us',
                 style: TextStyle(
                   fontSize: 20,
@@ -114,8 +115,20 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 20,
+            ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color(0xFFFCB117),
+        selectedItemColor: Colors.black,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: 'About Us'),
+          BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
+        ],
       ),
     );
   }

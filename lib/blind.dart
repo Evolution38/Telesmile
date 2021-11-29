@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:telesmile/blind1_page.dart';
+import 'package:telesmile/blind_page.dart';
 import 'package:telesmile/drawer.dart';
 
-class BlindPage extends StatelessWidget {
-  const BlindPage({Key? key}) : super(key: key);
+class Blind extends StatelessWidget {
+  const Blind({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +22,6 @@ class BlindPage extends StatelessWidget {
         elevation: 0.0,
       ),
       drawer: const MyDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
-        // backgroundColor: Color('0xFFFCB117'),
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: 'About Us'),
-          BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
-        ],
-      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -57,13 +51,57 @@ class BlindPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const SizedBox(height: 35),
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(width: 4, color: const Color(0xFFFCB117))),
+                child: ListTile(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) =>  const BlindPage()));
+                  },
+                  leading: Image.network(
+                    'https://themighty.com/wp-content/uploads/2018/09/GettyImages-622181368-1280x640.jpg',
+                    fit: BoxFit.fill,
+                  ),
+                  title: const Text(
+                    'Title',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox( height: 20),
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(width: 4, color: const Color(0xFFFCB117))),
+                child: ListTile(
+                  onTap: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) =>  const Blind1Page()));
+                  },
+                  leading: Image.network(
+                    'https://themighty.com/wp-content/uploads/2018/09/GettyImages-622181368-1280x640.jpg',
+                    fit: BoxFit.fill,
+                  ),
+                  title: const Text(
+                    'Title',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
               const SizedBox(height: 20),
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    border:
-                        Border.all(width: 4, color: const Color(0xFFFCB117))),
-                //  height: 100,
+                    border: Border.all(width: 4, color: const Color(0xFFFCB117))),
                 child: ListTile(
                   leading: Image.network(
                     'https://themighty.com/wp-content/uploads/2018/09/GettyImages-622181368-1280x640.jpg',
@@ -77,50 +115,19 @@ class BlindPage extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border:
-                        Border.all(width: 4, color: const Color(0xFFFCB117))),
-                //  height: 100,
-                child: ListTile(
-                  leading: Image.network(
-                    'https://themighty.com/wp-content/uploads/2018/09/GettyImages-622181368-1280x640.jpg',
-                    fit: BoxFit.fill,
-                  ),
-                  title: const Text(
-                    'Title',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    border:
-                        Border.all(width: 4, color: const Color(0xFFFCB117))),
-                //  height: 100,
-                child: ListTile(
-                  leading: Image.network(
-                    'https://themighty.com/wp-content/uploads/2018/09/GettyImages-622181368-1280x640.jpg',
-                    fit: BoxFit.fill,
-                  ),
-                  title: const Text(
-                    'Title',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-              )
+              ), 
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color(0xFFFCB117),
+        selectedItemColor: Colors.black,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.people), label: 'About Us'),
+          BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
+        ],
       ),
     );
   }
