@@ -12,10 +12,10 @@ class Blind extends StatelessWidget {
       appBar: AppBar(
         // ignore: prefer_const_constructors
         title: Image(
-          image: const AssetImage('assets/image.png'),
+          image: const AssetImage('assets/Group 21.png'),
           fit: BoxFit.cover,
-          height: 50,
-          width: 50,
+          height: 60,
+          width: 60,
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,

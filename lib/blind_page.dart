@@ -55,6 +55,14 @@ class BlindPage extends StatelessWidget {
                 border: Border.all(width: 4, color: const Color(0xFFFCB117)),
               ),
               height: 100,
+              width: 350,
+              child: Stack(
+                children: [Image(image: NetworkImage('https://image.freepik.com/free-photo/blind-man-people-with-disability-handicapped-person-everyday-life-visually-impaired-man-with-walking-stick-descending-steps-city-park_1157-40250.jpg'),
+                fit: BoxFit.fill,),
+                Icon(Icons.play_arrow,
+                color: Color(0xFFFCB117),)
+                ]
+              ),
             ),
             const SizedBox(height: 25),
             const Text('Watch Video',
@@ -66,6 +74,9 @@ class BlindPage extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(width: 4, color: const Color(0xFFFCB117)),
+                image: const DecorationImage(
+                  image:NetworkImage('https://image.freepik.com/free-photo/blind-man-people-with-disability-handicapped-person-everyday-life-visually-impaired-man-with-walking-stick-descending-steps-city-park_1157-40250.jpg'),
+                  fit: BoxFit.fill )
               ),
               height: 100,
             ),
@@ -79,6 +90,10 @@ class BlindPage extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(width: 4, color: const Color(0xFFFCB117)),
+                image: const DecorationImage(
+                  image:NetworkImage('https://image.freepik.com/free-photo/blind-man-people-with-disability-handicapped-person-everyday-life-visually-impaired-man-with-walking-stick-descending-steps-city-park_1157-40250.jpg'),
+                  fit: BoxFit.fill,
+                )
               ),
               height: 100,
             ),

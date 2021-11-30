@@ -53,7 +53,7 @@ class _SplashState extends State<Splash> {
           children: [
             const Padding(
               padding: EdgeInsets.all(16.0),
-              child: Image(image: AssetImage('assets/Group21.png'),),
+              child: Image(image: AssetImage('assets/Group 21.png'),),
             )
           ],
         ),
