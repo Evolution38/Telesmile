@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors
 
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:telesmile/home.dart';
+import 'package:telesmile/navscreen.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,6 +29,7 @@ class Splash extends StatefulWidget {
   @override
   _SplashState createState() => _SplashState();
 }
+
 class _SplashState extends State<Splash> {
   @override
   void initState() {
@@ -38,6 +39,10 @@ class _SplashState extends State<Splash> {
       Navigator.pushAndRemoveUntil(context,
           MaterialPageRoute(builder: (_) => HomePage()), (route) => false);
       // }
+    });
+    Timer(Duration(seconds: 3), () {
+      Navigator.pushAndRemoveUntil(context,
+          MaterialPageRoute(builder: (_) => NavScreen()), (route) => false);
     });
   }
 
@@ -53,7 +58,9 @@ class _SplashState extends State<Splash> {
           children: [
             const Padding(
               padding: EdgeInsets.all(16.0),
-              child: Image(image: AssetImage('assets/Group 21.png'),),
+              child: Image(
+                image: AssetImage('assets/Group 21.png'),
+              ),
             )
           ],
         ),

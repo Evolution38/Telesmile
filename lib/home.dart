@@ -121,6 +121,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+
     );
   }
 }
@@ -141,10 +142,10 @@ class Orals extends StatelessWidget {
           ),
           child: Container(
               child: Image(
-                image: NetworkImage(image!),
-                fit: BoxFit.cover,
-              )
-              ),
+            image: NetworkImage(image!),
+            fit: BoxFit.cover,
+          )
+          ),
         ),
         Text(
           'Oral for',
