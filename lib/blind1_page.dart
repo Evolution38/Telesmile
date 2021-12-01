@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:telesmile/blind.dart';
 import 'package:telesmile/blind_page.dart';
 
 class Blind1Page extends StatelessWidget {
@@ -15,14 +16,11 @@ class Blind1Page extends StatelessWidget {
             const SizedBox(height: 30),
             Row(
               children: [
-                FloatingActionButton(onPressed: (){
+                IconButton(onPressed: (){
                   Navigator.pushAndRemoveUntil(context,
-                  MaterialPageRoute(builder: (_) => const BlindPage()), (route) => false);
-                },
-                child: const Icon(Icons.arrow_back),
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.black,
-                ),
+                  MaterialPageRoute(builder: (_) => const Blind()), (route) => false);
+                }, 
+                icon: const Icon(Icons.arrow_back)),
                 const Padding(
                   padding: EdgeInsets.only(left: 60),
                   child: Text('Oral for Blind',

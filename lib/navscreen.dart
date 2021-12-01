@@ -33,7 +33,7 @@ class _NavScreenState extends State<NavScreen> {
           });
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home',),
           BottomNavigationBarItem(icon: Icon(Icons.people), label: 'About Us'),
           BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
         ],

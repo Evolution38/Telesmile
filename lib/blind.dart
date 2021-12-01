@@ -55,7 +55,7 @@ class Blind extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(width: 4, color: const Color(0xFFFCB117))),
+                    border: Border.all(width: 3, color: const Color(0xFFFCB117))),
                 child: ListTile(
                   onTap: () {
                     Navigator.push(context,
@@ -78,7 +78,7 @@ class Blind extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(width: 4, color: const Color(0xFFFCB117))),
+                    border: Border.all(width: 3, color: const Color(0xFFFCB117))),
                 child: ListTile(
                   onTap: (){
                     Navigator.push(context,
@@ -101,7 +101,7 @@ class Blind extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(width: 4, color: const Color(0xFFFCB117))),
+                    border: Border.all(width: 3, color: const Color(0xFFFCB117))),
                 child: ListTile(
                   leading: Image.network(
                     'https://themighty.com/wp-content/uploads/2018/09/GettyImages-622181368-1280x640.jpg',

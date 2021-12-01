@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:telesmile/audio.dart';
 import 'package:telesmile/blind.dart';
+import 'package:telesmile/image.dart';
+import 'package:telesmile/video.dart';
 
 class BlindPage extends StatelessWidget {
   const BlindPage({ Key? key }) : super(key: key);
@@ -15,14 +18,11 @@ class BlindPage extends StatelessWidget {
             const SizedBox(height: 30),
             Row(
               children: [
-                FloatingActionButton(onPressed: (){
+                IconButton(onPressed: (){
                   Navigator.pushAndRemoveUntil(context,
                   MaterialPageRoute(builder: (_) => const Blind()), (route) => false);
-                },
-                child: const Icon(Icons.arrow_back),
-                backgroundColor: Colors.white,
-                foregroundColor: Colors.black,
-                ),
+                }, 
+                icon: const Icon(Icons.arrow_back)),
                 const Padding(
                   padding: EdgeInsets.only(left: 60),
                   child: Text('Oral for Blind',
@@ -44,12 +44,13 @@ class BlindPage extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(width: 4, color: const Color(0xFFFCB117)),
+                border: Border.all(width: 3, color: const Color(0xFFFCB117)),
                ),
               child: const Text('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Congue faucibus non facilisi et ultrices cras habitasse. Volutpat amet leo in mus mi metus.',
               style: TextStyle(
                 fontSize: 18,
               ),),
+              width: 350,
             ),
             const SizedBox(height: 25),
             const Text('View Images',
@@ -57,18 +58,32 @@ class BlindPage extends StatelessWidget {
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),),
+            const SizedBox(height:10),
             Stack(
               children: [
                 Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  border: Border.all(width: 4, color: const Color(0xFFFCB117)),
+                  border: Border.all(width: 3, color: const Color(0xFFFCB117)),
                   image: const DecorationImage(
                     image:NetworkImage('https://image.freepik.com/free-photo/blind-man-people-with-disability-handicapped-person-everyday-life-visually-impaired-man-with-walking-stick-descending-steps-city-park_1157-40250.jpg'),
                     fit: BoxFit.fill,),
                 ),
-                height: 100,
+                height: 150,
                 width: 350,
+              ),
+              Positioned(
+                top: 40,
+                left: 150,
+                child: IconButton(
+                  onPressed: (){
+                    Navigator.push(context,
+                          MaterialPageRoute(builder: (context) =>  const ImagePage()));
+                  }, 
+                  icon: const Icon(Icons.open_in_full, 
+                  color: Color(0xFFFCB117),
+                  size: 50,
+                  )),
               ),
               ]
             ),
@@ -78,16 +93,34 @@ class BlindPage extends StatelessWidget {
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(width: 4, color: const Color(0xFFFCB117)),
-                image: const DecorationImage(
-                  image:NetworkImage('https://image.freepik.com/free-photo/blind-man-people-with-disability-handicapped-person-everyday-life-visually-impaired-man-with-walking-stick-descending-steps-city-park_1157-40250.jpg'),
-                  fit: BoxFit.fill )
+            const SizedBox(height:10),
+            Stack(
+              children: [
+                Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(width: 3, color: const Color(0xFFFCB117)),
+                  image: const DecorationImage(
+                    image:NetworkImage('https://image.freepik.com/free-photo/blind-man-people-with-disability-handicapped-person-everyday-life-visually-impaired-man-with-walking-stick-descending-steps-city-park_1157-40250.jpg'),
+                    fit: BoxFit.fill,),
+                ),
+                height: 150,
+                width: 350,
               ),
-              height: 100,
-              width: 350,
+              Positioned(
+                top: 40,
+                left: 150,
+                child: IconButton(
+                  onPressed: (){
+                    Navigator.push(context,
+                          MaterialPageRoute(builder: (context) =>  const VideoPage()));
+                  }, 
+                  icon: const Icon(Icons.play_arrow_rounded,
+                  color: Color(0xFFFCB117),
+                  size: 50,
+                  ),),
+              ),
+              ]
             ),
             const SizedBox(height: 25),
             const Text('Listen Audio',
@@ -95,17 +128,34 @@ class BlindPage extends StatelessWidget {
               fontSize: 20,
               fontWeight: FontWeight.bold,
             ),),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(width: 4, color: const Color(0xFFFCB117)),
-                image: const DecorationImage(
-                  image:NetworkImage('https://image.freepik.com/free-photo/blind-man-people-with-disability-handicapped-person-everyday-life-visually-impaired-man-with-walking-stick-descending-steps-city-park_1157-40250.jpg'),
-                  fit: BoxFit.fill,
-                )
+            const SizedBox(height:10),
+            Stack(
+              children:[ Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(width: 3, color: const Color(0xFFFCB117)),
+                  image: const DecorationImage(
+                    image:NetworkImage('https://image.freepik.com/free-photo/blind-man-people-with-disability-handicapped-person-everyday-life-visually-impaired-man-with-walking-stick-descending-steps-city-park_1157-40250.jpg'),
+                    fit: BoxFit.fill,
+                  )
+                ),
+                height: 150,
+                width: 350,
               ),
-              height: 100,
-              width: 350,
+              Positioned(
+                top: 40,
+                left: 150,
+                child: IconButton(
+                  onPressed: (){
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) =>  const AudioPage()));
+                  }, 
+                  icon: const Icon(Icons.audiotrack,
+                  color: Color(0xFFFCB117),
+                  size: 50,
+                  ),),
+              ),
+              ]
             ),
             const SizedBox(height: 25),
           ],),
@@ -114,7 +164,7 @@ class BlindPage extends StatelessWidget {
         backgroundColor: const Color(0xFFFCB117),
         selectedItemColor: Colors.black,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.people), label: 'About Us'),
           BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
         ],
