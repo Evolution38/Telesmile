@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables, prefer_const_constructors, must_be_immutable, avoid_unnecessary_containers
 
-import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:telesmile/appbar.dart';
 import 'package:telesmile/blind.dart';
@@ -142,7 +142,7 @@ class Orals extends StatelessWidget {
           ),
         ),
         Text(
-          'Oral for',
+          'Oral health for',
           style: TextStyle(
             fontSize: 20,
           ),
