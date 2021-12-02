@@ -162,15 +162,15 @@ class BlindPage extends StatelessWidget {
             const SizedBox(height: 25),
           ],),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xFFFCB117),
-        selectedItemColor: Colors.black,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: 'About Us'),
-          BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   backgroundColor: const Color(0xFFFCB117),
+      //   selectedItemColor: Colors.black,
+      //   items: const [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.people), label: 'About Us'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
+      //   ],
+      // ),
     );
   }
 }

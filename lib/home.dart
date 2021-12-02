@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables, prefer_const_constructors, must_be_immutable, avoid_unnecessary_containers
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:telesmile/appbar.dart';
 import 'package:telesmile/blind.dart';
@@ -32,7 +33,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Text(
-              '"Everyone in the society"',
+              "Everyone in the society",
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -43,15 +44,15 @@ class _HomePageState extends State<HomePage> {
             ),
             GridView.count(
               crossAxisCount: 2,
-              mainAxisSpacing: 3,
-              crossAxisSpacing: 3,
+              mainAxisSpacing: 35,
+              crossAxisSpacing:4,
               shrinkWrap: true,
               physics: ScrollPhysics(),
               children: [
                 GestureDetector(
                   child: Orals(
                       image:
-                          'https://image.freepik.com/free-photo/blind-man-people-with-disability-handicapped-person-everyday-life-visually-impaired-man-with-walking-stick-descending-steps-city-park_1157-40249.jpg',
+                          'assets/Rectangle 2.jpg',
                       oral: 'Blind'),
                   onTap: () {
                     Navigator.push(context,
@@ -60,27 +61,27 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Orals(
                     image:
-                        'https://image.freepik.com/free-photo/couple-talking-using-sign-language_23-2148572502.jpg',
+                        'assets/Rectangle 3.png',
                     oral: 'Deaf'),
                 Orals(
                   image:
-                      'https://image.freepik.com/free-photo/portrait-sad-little-girl-sitting-isolated-blue-studio-background-how-it-feels-be-autist-modern-problems-new-vision-social-issues-concept-autism-childhood-healthcare-medicine_155003-36538.jpg',
+                      'assets/Rectangle 6.png',
                   oral: 'Autistic',
                 ),
                 Orals(
                   image:
-                      'https://image.freepik.com/free-photo/little-girls-playing-new-fidget-toy-popular-with-children-helps-them-concentrate_169016-12078.jpg',
+                      'assets/Rectangle 7 (3).png',
                   oral: 'Mentally Retard',
                 ),
                 Orals(
                   image:
-                      'https://image.freepik.com/free-photo/happy-woman-girl-with-down-syndrome-painting-each-other-s-faces_23-2148464633.jpg',
+                      'assets/Rectangle 6 (1).png',
                   oral: 'Down Syndrome',
                 ),
               ],
             ),
             SizedBox(
-              height: 20,
+              height: 50,
             ),
             ElevatedButton.icon(
               onPressed: () {
@@ -127,15 +128,17 @@ class Orals extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          child: Container(
-              child: Image(
-            image: NetworkImage(image!),
-            fit: BoxFit.cover,
-          )
+        Expanded(
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30.0),
+            ),
+            child: Container(
+                child: Image(
+              image: AssetImage(image!),
+              fit: BoxFit.fill,
+            )
+            ),
           ),
         ),
         Text(

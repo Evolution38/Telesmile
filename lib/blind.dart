@@ -51,8 +51,8 @@ class Blind extends StatelessWidget {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) =>  const BlindPage()));
                   },
-                  leading: Image.network(
-                    'https://themighty.com/wp-content/uploads/2018/09/GettyImages-622181368-1280x640.jpg',
+                  leading: Image.asset(
+                    'assets/blind men.png',
                     fit: BoxFit.fill,
                   ),
                   title: const Text(
@@ -74,8 +74,8 @@ class Blind extends StatelessWidget {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) =>  const Blind1Page()));
                   },
-                  leading: Image.network(
-                    'https://themighty.com/wp-content/uploads/2018/09/GettyImages-622181368-1280x640.jpg',
+                  leading: Image.asset(
+                    'assets/blind men.png',
                     fit: BoxFit.fill,
                   ),
                   title: const Text(
@@ -93,8 +93,8 @@ class Blind extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(width: 3, color: const Color(0xFFFCB117))),
                 child: ListTile(
-                  leading: Image.network(
-                    'https://themighty.com/wp-content/uploads/2018/09/GettyImages-622181368-1280x640.jpg',
+                  leading: Image.asset(
+                    'assets/blind men.png',
                     fit: BoxFit.fill,
                   ),
                   title: const Text(
