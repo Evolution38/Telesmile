@@ -28,9 +28,9 @@ class _ImagePageState extends State<ImagePage> {
         itemCount: imageList.length,
         builder: (context, index) {
           return PhotoViewGalleryPageOptions(
-            imageProvider: AssetImage(imageList[index]),
+            imageProvider: NetworkImage(imageList[index]),
             minScale: PhotoViewComputedScale.contained * 0.8,
-            maxScale: PhotoViewComputedScale.covered * 2,
+            maxScale: PhotoViewComputedScale.covered * 1,
           );
         },
         scrollPhysics: BouncingScrollPhysics(),

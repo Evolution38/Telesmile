@@ -14,7 +14,7 @@ class NavScreen extends StatefulWidget {
 
 class _NavScreenState extends State<NavScreen> {
   var _currentIndex = 0;
-  final screens = [
+  final navigationscreen = [
     HomePage(),
     AboutPage(),
     ContactUs(),
@@ -22,7 +22,21 @@ class _NavScreenState extends State<NavScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screens[_currentIndex],
+      body: /*navigationscreen[_currentIndex],*/
+      Stack(
+        children: 
+          navigationscreen
+              .asMap()
+              .map((i, screen) => MapEntry(
+                    i,
+                    Offstage(
+                      offstage: _currentIndex != i,
+                      child: screen,
+                    ),
+                  ))
+              .values
+              .toList()
+      ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color(0xFFFCB117),
         selectedItemColor: Colors.black,
@@ -33,7 +47,10 @@ class _NavScreenState extends State<NavScreen> {
           });
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home',),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.people), label: 'About Us'),
           BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
         ],

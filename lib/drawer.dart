@@ -8,6 +8,11 @@ class MyDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [Icon(Icons.menu, color: Colors.black,)],
+        ),
+      ),
     );
   }
 }

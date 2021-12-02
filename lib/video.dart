@@ -12,15 +12,18 @@ class VideoPage extends StatefulWidget {
 
 class _VideoPageState extends State<VideoPage> {
   late VideoPlayerController _videoPlayerController;
+
   @override
   void initState() {
     super.initState();
-    _videoPlayerController =
-        VideoPlayerController.network('https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4')
-          ..initialize().then((_) {
-            setState(() {});
-            _videoPlayerController.play();
-          });
+    _videoPlayerController = VideoPlayerController.network(
+        'https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4')
+      ..initialize().then((_) {
+        setState(() {});
+        _videoPlayerController.play();
+        _videoPlayerController.setLooping(true);
+        
+      });
   }
 
   @override
@@ -36,5 +39,6 @@ class _VideoPageState extends State<VideoPage> {
           ? VideoPlayer(_videoPlayerController)
           : Container(),
     );
+    
   }
 }

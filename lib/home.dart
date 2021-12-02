@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables, prefer_const_constructors, must_be_immutable, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:telesmile/appbar.dart';
 import 'package:telesmile/blind.dart';
 import 'package:telesmile/contactus.dart';
 import 'package:telesmile/drawer.dart';
@@ -16,17 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Image.asset(
-          'assets/Group 21.png',
-          fit: BoxFit.cover,
-          height: 60,
-          width: 50,
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-      ),
+      appBar: MyAppBar(),
       drawer: MyDrawer(),
       body: SingleChildScrollView(
         child: Column(

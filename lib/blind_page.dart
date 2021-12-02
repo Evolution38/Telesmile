@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+// import 'package:telesmile/appbar.dart';
 import 'package:telesmile/audio.dart';
 import 'package:telesmile/blind.dart';
 import 'package:telesmile/image.dart';
@@ -12,6 +13,7 @@ class BlindPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: MyAppBar(),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -80,7 +82,7 @@ class BlindPage extends StatelessWidget {
                     Navigator.push(context,
                           MaterialPageRoute(builder: (context) =>  const ImagePage()));
                   }, 
-                  icon: const Icon(Icons.open_in_full, 
+                  icon: const Icon(Icons.open_in_full_rounded, 
                   color: Color(0xFFFCB117),
                   size: 50,
                   )),
@@ -115,7 +117,7 @@ class BlindPage extends StatelessWidget {
                     Navigator.push(context,
                           MaterialPageRoute(builder: (context) =>  const VideoPage()));
                   }, 
-                  icon: const Icon(Icons.play_arrow_rounded,
+                  icon: const Icon(Icons.play_circle,
                   color: Color(0xFFFCB117),
                   size: 50,
                   ),),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telesmile/appbar.dart';
 import 'package:telesmile/blind1_page.dart';
 import 'package:telesmile/blind_page.dart';
 import 'package:telesmile/drawer.dart';
@@ -9,18 +10,7 @@ class Blind extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // ignore: prefer_const_constructors
-        title: Image(
-          image: const AssetImage('assets/Group 21.png'),
-          fit: BoxFit.cover,
-          height: 60,
-          width: 60,
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-      ),
+      appBar: MyAppBar(),
       drawer: const MyDrawer(),
       body: SingleChildScrollView(
         child: Padding(
@@ -120,15 +110,15 @@ class Blind extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color(0xFFFCB117),
-        selectedItemColor: Colors.black,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: 'About Us'),
-          BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   backgroundColor: const Color(0xFFFCB117),
+      //   selectedItemColor: Colors.black,
+      //   items: const [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.people), label: 'About Us'),
+      //     BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
+      //   ],
+      // ),
     );
   }
 }

@@ -34,11 +34,6 @@ class _SplashState extends State<Splash> {
   void initState() {
     // HttpService.getHomeSliderModel();
     super.initState();
-    Timer(const Duration(seconds: 3), () {
-      Navigator.pushAndRemoveUntil(context,
-          MaterialPageRoute(builder: (_) => HomePage()), (route) => false);
-      // }
-    });
     Timer(Duration(seconds: 3), () {
       Navigator.pushAndRemoveUntil(context,
           MaterialPageRoute(builder: (_) => NavScreen()), (route) => false);
