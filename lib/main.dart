@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:telesmile/home.dart';
+import 'package:telesmile/audio.dart';
+// import 'package:flutter/services.dart';
+// import 'package:telesmile/home.dart';
 import 'package:telesmile/navscreen.dart';
 
 void main() {
@@ -11,15 +12,15 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    // SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+    // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'TeleSmile',
       theme: ThemeData(primaryColor: Colors.yellow),
-      home: Splash(),
+      home: AudioPage(),
     );
   }
 }

@@ -20,10 +20,10 @@ class _ImagePageState extends State<ImagePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('ImagePage'),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   title: Text('ImagePage'),
+      //   centerTitle: true,
+      // ),
       body: PhotoViewGallery.builder(
         itemCount: imageList.length,
         builder: (context, index) {
