@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:telesmile/appbar.dart';
 import 'package:telesmile/blind1_page.dart';
 import 'package:telesmile/blind_page.dart';
-import 'package:telesmile/drawer.dart';
+import 'package:telesmile/drawerpage/drawer.dart';
+// import 'package:telesmile/drawer.dart';
 
 class Blind extends StatelessWidget {
   const Blind({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class Blind extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: const MyDrawer(),
+      drawer: MyDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),

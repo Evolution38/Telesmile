@@ -9,6 +9,7 @@
  * Copyright (c) 2021 Michele Volpato
  */
 
+import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -82,8 +83,8 @@ class PlayerButtons extends StatelessWidget {
       return IconButton(
         icon: Icon(Icons.replay),
         iconSize: 64.0,
-        onPressed: () => _audioPlayer!.seek(Duration.zero,
-            index: _audioPlayer!.effectiveIndices!.first),
+        onPressed: () => _audioPlayer!
+            .seek(Duration.zero, index: _audioPlayer!.effectiveIndices!.first),
       );
     }
   }
@@ -106,7 +107,8 @@ class PlayerButtons extends StatelessWidget {
   Widget _previousButton() {
     return IconButton(
       icon: Icon(Icons.skip_previous),
-      onPressed: _audioPlayer!.hasPrevious ? _audioPlayer!.seekToPrevious : null,
+      onPressed:
+          _audioPlayer!.hasPrevious ? _audioPlayer!.seekToPrevious : null,
     );
   }
 

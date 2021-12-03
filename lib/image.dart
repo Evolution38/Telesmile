@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
-
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
@@ -29,7 +28,7 @@ class _ImagePageState extends State<ImagePage> {
         builder: (context, index) {
           return PhotoViewGalleryPageOptions(
             imageProvider: NetworkImage(imageList[index]),
-            minScale: PhotoViewComputedScale.contained * 0.8,
+            minScale: PhotoViewComputedScale.contained * 1,
             maxScale: PhotoViewComputedScale.covered * 1,
           );
         },
@@ -37,7 +36,7 @@ class _ImagePageState extends State<ImagePage> {
         backgroundDecoration: BoxDecoration(
           color: Theme.of(context).canvasColor,
         ),
-        enableRotation: true,
+        enableRotation: false,
         loadingBuilder: (context, event) => Center(
           child: Container(
             width: 30.0,
