@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors, unused_import
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:telesmile/audio.dart';
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'TeleSmile',
       theme: ThemeData(primaryColor: Colors.yellow),
-      home: AudioPage(),
+      home: Splash(),
     );
   }
 }

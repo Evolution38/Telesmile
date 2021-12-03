@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, unused_local_variable
+// ignore_for_file: prefer_const_literals_to_create_immutables, unused_local_variable, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -111,8 +111,8 @@ class BlindPage extends StatelessWidget {
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {
-                  screenDisplay = SystemChrome.setEnabledSystemUIOverlays(
-                      [SystemUiOverlay.bottom]);
+                  screenDisplay = SystemChrome.setEnabledSystemUIMode(
+                      SystemUiMode.manual, overlays: [SystemUiOverlay.bottom]);
                   Navigator.push(
                     context,
                     MaterialPageRoute(

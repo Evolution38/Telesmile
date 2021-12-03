@@ -10,7 +10,7 @@ class MyDrawer extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          children: [Icon(Icons.menu, color: Colors.black,)],
+          children: const [Icon(Icons.menu, color: Colors.black,)],
         ),
       ),
     );

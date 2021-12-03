@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:telesmile/blind.dart';
-import 'package:telesmile/blind_page.dart';
 
 class Blind1Page extends StatelessWidget {
   const Blind1Page({ Key? key }) : super(key: key);
