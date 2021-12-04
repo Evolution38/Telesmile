@@ -31,22 +31,6 @@ class _ContactUsState extends State<ContactUs> {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             children: [
-              // const SizedBox(height: 30),
-              // Row(
-              //   children: const [
-              //     Icon(Icons.arrow_back),
-              //     Padding(
-              //       padding: EdgeInsets.only(left: 110),
-              //       child: Text(
-              //         'Contact Us',
-              //         style: TextStyle(
-              //           fontSize: 20,
-              //           fontWeight: FontWeight.bold,
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
               const SizedBox(height: 20),
               DropdownButton(
                 isExpanded: false,

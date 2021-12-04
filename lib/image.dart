@@ -28,8 +28,13 @@ class _ImagePageState extends State<ImagePage> {
         builder: (context, index) {
           return PhotoViewGalleryPageOptions(
             imageProvider: NetworkImage(imageList[index]),
+<<<<<<< Updated upstream
             minScale: PhotoViewComputedScale.contained * 1,
             maxScale: PhotoViewComputedScale.covered * 1,
+=======
+            // minScale: PhotoViewComputedScale.contained * 0.8,
+            // maxScale: PhotoViewComputedScale.covered * 1,
+>>>>>>> Stashed changes
           );
         },
         scrollPhysics: BouncingScrollPhysics(),
