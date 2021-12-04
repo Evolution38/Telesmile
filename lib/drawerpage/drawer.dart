@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:telesmile/drawerpage/privacypolicy.dart';
 import 'package:telesmile/drawerpage/terms_conditions.dart';
+import 'package:telesmile/drawerpage/termsuse.dart';
 import 'package:telesmile/home.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -35,7 +36,7 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
-              Icons.last_page_outlined,
+              Icons.description,
               color: Colors.black,
             ),
             title: Text(
@@ -69,7 +70,7 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
-              Icons.last_page_outlined,
+              Icons.description_outlined,
               color: Colors.black,
             ),
             title: Text(
@@ -79,6 +80,10 @@ class MyDrawer extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
+             onTap: (){
+               Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => TermsUse()));
+            },
           ),
         ],
       ),

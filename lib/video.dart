@@ -22,7 +22,7 @@ class _VideoPageState extends State<VideoPage> {
   void initState() {
     super.initState();
     _videoPlayerController = VideoPlayerController.network(
-        'https://ditrpvideos.s3.ap-south-1.amazonaws.com/Pyaar+Ka+Punchnama+2011+Hindi+720p+BRRip+CharmeLeon+Silver+RG.mkv');
+        'https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4');
     _chewieController = ChewieController(
       allowedScreenSleep: false,
       // looping: true,
