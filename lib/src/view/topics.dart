@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:telesmile/appbar.dart';
-import 'package:telesmile/blind1_page.dart';
-import 'package:telesmile/blind_page.dart';
-import 'package:telesmile/drawerpage/drawer.dart';
-// import 'package:telesmile/drawer.dart';
+import 'package:telesmile/src/view/widgets/appbar.dart';
 
-class Blind extends StatelessWidget {
-  const Blind({Key? key}) : super(key: key);
+import 'action_on_topic.dart';
+import 'drawerpage/drawer.dart';
+
+class Topics extends StatelessWidget {
+  const Topics({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +49,7 @@ class Blind extends StatelessWidget {
                 child: ListTile(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>  const BlindPage()));
+                        MaterialPageRoute(builder: (context) =>  ActionsonTopic()));
                   },
                   leading: Image.asset(
                     'assets/blind men.png',
@@ -73,7 +72,7 @@ class Blind extends StatelessWidget {
                 child: ListTile(
                   onTap: (){
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>  const Blind1Page()));
+                        MaterialPageRoute(builder: (context) =>  ActionsonTopic()));
                   },
                   leading: Image.asset(
                     'assets/blind men.png',

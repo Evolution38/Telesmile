@@ -2,14 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-// import 'package:telesmile/appbar.dart';
-import 'package:telesmile/audio.dart';
-// import 'package:telesmile/blind.dart';
-import 'package:telesmile/image.dart';
-import 'package:telesmile/video.dart';
+import 'package:telesmile/src/view/video.dart';
 
-class BlindPage extends StatelessWidget {
-  const BlindPage({Key? key}) : super(key: key);
+import 'audio/audio.dart';
+import 'image.dart';
+
+class ActionsonTopic extends StatelessWidget {
+  const ActionsonTopic({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,17 +34,10 @@ class BlindPage extends StatelessWidget {
           child: Column(
             children: [
               const Text(
-                'Lorem ipsum dolor sit amet, consectetur',
-                style: TextStyle(fontSize: 18),
+                'Lorem ipsum dolor sit amet, consectetur \n نع مغرلاب ةنيدم يسرك ,دقو نويدلاو ريوطت مت',
+                style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'نع مغرلاب ةنيدم يسرك ,دقو نويدلاو ريوطت مت',
-                style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 25),
+              const SizedBox(height: 20),
               Container(
                 padding: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
@@ -187,15 +179,6 @@ class BlindPage extends StatelessWidget {
           ),
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   backgroundColor: const Color(0xFFFCB117),
-      //   selectedItemColor: Colors.black,
-      //   items: const [
-      //     BottomNavigationBarItem(icon: Icon(Icons.home),label: 'Home'),
-      //     BottomNavigationBarItem(icon: Icon(Icons.people), label: 'About Us'),
-      //     BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
-      //   ],
-      // ),
     );
   }
 }

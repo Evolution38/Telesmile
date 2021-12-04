@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:telesmile/drawerpage/drawer.dart';
-import 'package:telesmile/drawerpage/header.dart';
+
+import 'drawer.dart';
+import 'header.dart';
 
 class TermsConditions extends StatefulWidget {
   const TermsConditions({ Key? key }) : super(key: key);

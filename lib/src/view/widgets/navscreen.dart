@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
-import 'package:telesmile/about.dart';
-import 'package:telesmile/contactus.dart';
 import 'package:telesmile/home.dart';
+
+import '../about.dart';
+import '../contactus.dart';
 
 class NavScreen extends StatefulWidget {
   const NavScreen({Key? key}) : super(key: key);

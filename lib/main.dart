@@ -1,10 +1,7 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors, unused_import
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:telesmile/audio.dart';
-// import 'package:flutter/services.dart';
-// import 'package:telesmile/home.dart';
-import 'package:telesmile/navscreen.dart';
+import 'package:telesmile/src/view/widgets/navscreen.dart';
 
 void main() {
   runApp(MyApp());

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:telesmile/audio_player_buttons.dart';
+
+import 'audio_player_buttons.dart';
 
 class AudioPage extends StatefulWidget {
   const AudioPage({ Key? key }) : super(key: key);

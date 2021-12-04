@@ -2,10 +2,10 @@
 
 // import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:telesmile/appbar.dart';
-import 'package:telesmile/blind.dart';
-import 'package:telesmile/contactus.dart';
-import 'package:telesmile/drawerpage/drawer.dart';
+import 'package:telesmile/src/view/contactus.dart';
+import 'package:telesmile/src/view/drawerpage/drawer.dart';
+import 'package:telesmile/src/view/topics.dart';
+import 'package:telesmile/src/view/widgets/appbar.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                       oral: 'Blind'),
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Blind()));
+                        MaterialPageRoute(builder: (context) => Topics()));
                   },
                 ),
                 Orals(
