@@ -11,7 +11,7 @@ class Topics extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: MyDrawer(),
+      drawer: const MyDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -49,7 +49,7 @@ class Topics extends StatelessWidget {
                 child: ListTile(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>  ActionsonTopic()));
+                        MaterialPageRoute(builder: (context) =>  const ActionsonTopic()));
                   },
                   leading: Image.asset(
                     'assets/blind men.png',
@@ -72,7 +72,7 @@ class Topics extends StatelessWidget {
                 child: ListTile(
                   onTap: (){
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) =>  ActionsonTopic()));
+                        MaterialPageRoute(builder: (context) =>  const ActionsonTopic()));
                   },
                   leading: Image.asset(
                     'assets/blind men.png',
@@ -110,15 +110,6 @@ class Topics extends StatelessWidget {
           ),
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   backgroundColor: const Color(0xFFFCB117),
-      //   selectedItemColor: Colors.black,
-      //   items: const [
-      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-      //     BottomNavigationBarItem(icon: Icon(Icons.people), label: 'About Us'),
-      //     BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Contact'),
-      //   ],
-      // ),
     );
   }
 }

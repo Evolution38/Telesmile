@@ -6,6 +6,7 @@ import 'package:telesmile/src/view/contactus.dart';
 import 'package:telesmile/src/view/drawerpage/drawer.dart';
 import 'package:telesmile/src/view/topics.dart';
 import 'package:telesmile/src/view/widgets/appbar.dart';
+import 'package:telesmile/src/view/widgets/texts.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -26,6 +27,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(
               height: 20,
             ),
+           LocalText(topic:'Commited to excel in Oral health care for',),
             Text(
               'Commited to excel in Oral health care for',
               style: TextStyle(
@@ -33,7 +35,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Text(
-              "Everyone in the society",
+              '"Everyone in the society"',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
