@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telesmile/src/view/widgets/texts.dart';
 
 class ContactUs extends StatefulWidget {
   const ContactUs({Key? key}) : super(key: key);
@@ -13,14 +14,7 @@ class _ContactUsState extends State<ContactUs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Contact Us',
-          style: TextStyle(
-            fontSize: 25,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        title: AppText(heading: 'Contact Us',),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -94,15 +88,23 @@ class _ContactUsState extends State<ContactUs> {
 
   _renderWidget() {
     if (_value == 1) {
-      return const Text(
-        "Lorem ipsum dolor sit amet, consect etur adipiscing elit. Bibendum rhon cus velit dolor tellus a in est nisl. Lobortis egestas ornare ultrices ipsum sollicitudin ornare augue euenim. Adipiscing quam tincidunt vestibulum condimentum. Erat eget cursus non interdum sagittis. Nullam mauris nisl sagittis blandit turpis fermentum vitae. Sapien scelerisque ultrices id egestas. Faucibus turpis facilisi elit at. Arcu, proin eu at vitae risus donec elit. Neque at quis ultrices cras. Orci, sed iaculis fames bibendum vitae mollis. At mattis consequat congue et neque id donec malesuada eros. Non donec sagittis, odio quis pretium habitant diam vitae, cras.",
-        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+      return English(
+        text:
+            "Lorem ipsum dolor sit amet, consect etur adipiscing elit. Bibendum rhon cus velit dolor tellus a in est nisl. Lobortis egestas ornare ultrices ipsum sollicitudin ornare augue euenim. Adipiscing quam tincidunt vestibulum condimentum. Erat eget cursus non interdum sagittis. Nullam mauris nisl sagittis blandit turpis fermentum vitae. Sapien scelerisque ultrices id egestas. Faucibus turpis facilisi elit at. Arcu, proin eu at vitae risus donec elit. Neque at quis ultrices cras. Orci, sed iaculis fames bibendum vitae mollis. At mattis consequat congue et neque id donec malesuada eros. Non donec sagittis, odio quis pretium habitant diam vitae, cras.",
       );
+      // Text(
+      //   "Lorem ipsum dolor sit amet, consect etur adipiscing elit. Bibendum rhon cus velit dolor tellus a in est nisl. Lobortis egestas ornare ultrices ipsum sollicitudin ornare augue euenim. Adipiscing quam tincidunt vestibulum condimentum. Erat eget cursus non interdum sagittis. Nullam mauris nisl sagittis blandit turpis fermentum vitae. Sapien scelerisque ultrices id egestas. Faucibus turpis facilisi elit at. Arcu, proin eu at vitae risus donec elit. Neque at quis ultrices cras. Orci, sed iaculis fames bibendum vitae mollis. At mattis consequat congue et neque id donec malesuada eros. Non donec sagittis, odio quis pretium habitant diam vitae, cras.",
+      //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+      // );
     } else if (_value == 2) {
-      return const Text(
-        "تم تطوير والديون وقد, كرسي مدينة بالرغم عن لكل. المحيط واقتصار وفي تم, عالمية العالم في مدن. كل الا والفلبين الاندونيسية, قتيل، مهمّات ومن إذ, جهة من الفترة ارتكبها الشتوية. أما ثم أمّا بأيدي, لعملة الأرواح الأبرياء ان وصل. تعديل مدينة العدّ وقد عن. الهادي التحالف الإمتعاض حدى ما, عن جهة الأحمر وأكثرها.تشكيل تحرير الطريق قام ما, فمرّ إعادة الإيطالية أضف ٣٠, فقد بـ مقاومة الفرنسية. إعمار المسرح الوزراء ذلك أي, العصبة لليابان التاريخ، إذ ولم, مع جهة أسيا الإحتفاظ. وإيطالي الربيع، هذه قد, إيو بـ مشروط بلديهما الشّعبين. بل بال علاقة بولندا، الأمريكية, هذه مع حلّت لعدم الثالث. تحرير بتخصيص بل دار, أن قام كانت دأبوا الشرقي, ثم ويتّفق لإنعدام الا. مدن إذ عشوائية بالسيطرة الأوروبيّون, أضف أن الهادي استمرار. قررت وحرمان والفلبين ذلك تم, لم وأزيز العالمي الأثناء، بعض, فعل أم هنا؟ أحدث للحك أي معقل كُلفة أخذ, كما في مرمى للمجهود. فصل أم وبدأت وعُرفت, أدنى الشرق، أي",
-        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+      return Arabic(
+        arabic:
+            "تم تطوير والديون وقد, كرسي مدينة بالرغم عن لكل. المحيط واقتصار وفي تم, عالمية العالم في مدن. كل الا والفلبين الاندونيسية, قتيل، مهمّات ومن إذ, جهة من الفترة ارتكبها الشتوية. أما ثم أمّا بأيدي, لعملة الأرواح الأبرياء ان وصل. تعديل مدينة العدّ وقد عن. الهادي التحالف الإمتعاض حدى ما, عن جهة الأحمر وأكثرها.تشكيل تحرير الطريق قام ما, فمرّ إعادة الإيطالية أضف ٣٠, فقد بـ مقاومة الفرنسية. إعمار المسرح الوزراء ذلك أي, العصبة لليابان التاريخ، إذ ولم, مع جهة أسيا الإحتفاظ. وإيطالي الربيع، هذه قد, إيو بـ مشروط بلديهما الشّعبين. بل بال علاقة بولندا، الأمريكية, هذه مع حلّت لعدم الثالث. تحرير بتخصيص بل دار, أن قام كانت دأبوا الشرقي, ثم ويتّفق لإنعدام الا. مدن إذ عشوائية بالسيطرة الأوروبيّون, أضف أن الهادي استمرار. قررت وحرمان والفلبين ذلك تم, لم وأزيز العالمي الأثناء، بعض, فعل أم هنا؟ أحدث للحك أي معقل كُلفة أخذ, كما في مرمى للمجهود. فصل أم وبدأت وعُرفت, أدنى الشرق، أي",
       );
+      // Text(
+      //   "تم تطوير والديون وقد, كرسي مدينة بالرغم عن لكل. المحيط واقتصار وفي تم, عالمية العالم في مدن. كل الا والفلبين الاندونيسية, قتيل، مهمّات ومن إذ, جهة من الفترة ارتكبها الشتوية. أما ثم أمّا بأيدي, لعملة الأرواح الأبرياء ان وصل. تعديل مدينة العدّ وقد عن. الهادي التحالف الإمتعاض حدى ما, عن جهة الأحمر وأكثرها.تشكيل تحرير الطريق قام ما, فمرّ إعادة الإيطالية أضف ٣٠, فقد بـ مقاومة الفرنسية. إعمار المسرح الوزراء ذلك أي, العصبة لليابان التاريخ، إذ ولم, مع جهة أسيا الإحتفاظ. وإيطالي الربيع، هذه قد, إيو بـ مشروط بلديهما الشّعبين. بل بال علاقة بولندا، الأمريكية, هذه مع حلّت لعدم الثالث. تحرير بتخصيص بل دار, أن قام كانت دأبوا الشرقي, ثم ويتّفق لإنعدام الا. مدن إذ عشوائية بالسيطرة الأوروبيّون, أضف أن الهادي استمرار. قررت وحرمان والفلبين ذلك تم, لم وأزيز العالمي الأثناء، بعض, فعل أم هنا؟ أحدث للحك أي معقل كُلفة أخذ, كما في مرمى للمجهود. فصل أم وبدأت وعُرفت, أدنى الشرق، أي",
+      //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+      // );
     }
   }
 }

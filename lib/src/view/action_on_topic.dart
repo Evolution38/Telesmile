@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:telesmile/src/view/video.dart';
+import 'package:telesmile/src/view/widgets/texts.dart';
 
 import 'audio/audio.dart';
 import 'image.dart';
@@ -15,14 +16,15 @@ class ActionsonTopic extends StatelessWidget {
     Future<void> screenDisplay;
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Oral for Blind',
-          style: TextStyle(
-            fontSize: 25,
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        // title: const Text(
+        //   'Oral for Blind',
+        //   style: TextStyle(
+        //     fontSize: 25,
+        //     color: Colors.black,
+        //     fontWeight: FontWeight.bold,
+        //   ),
+        // ),
+        title: AppText(heading: 'Oral for Blind'),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -30,13 +32,11 @@ class ActionsonTopic extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              const Text(
-                'Lorem ipsum dolor sit amet, consectetur \n نع مغرلاب ةنيدم يسرك ,دقو نويدلاو ريوطت مت',
-                style: TextStyle(fontSize: 18,fontWeight: FontWeight.w500),
-              ),
+              English(text:'Lorem ipsum dolor sit amet, consectetur'),
+              Arabic(arabic:'نع مغرلاب ةنيدم يسرك ,دقو نويدلاو ريوطت مت' ,),
               const SizedBox(height: 20),
               Container(
                 padding: const EdgeInsets.all(10.0),
@@ -44,22 +44,12 @@ class ActionsonTopic extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(width: 3, color: const Color(0xFFFCB117)),
                 ),
-                child: const Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Congue faucibus non facilisi et ultrices cras habitasse. Volutpat amet leo in mus mi metus.',
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
-                ),
+                child:  
+                English(text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Congue faucibus non facilisi et ultrices cras habitasse. Volutpat amet leo in mus mi metus.',),
                 width: 350,
               ),
               const SizedBox(height: 25),
-              const Text(
-                'View Images',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              PrimaryText(topic: 'View Images',),
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {
@@ -93,13 +83,14 @@ class ActionsonTopic extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 25),
-              const Text(
-                'Watch Video',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              PrimaryText(topic: 'Watch Video',),
+              // const Text(
+              //   'Watch Video',
+              //   style: TextStyle(
+              //     fontSize: 20,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              // ),
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {
@@ -135,13 +126,14 @@ class ActionsonTopic extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 25),
-              const Text(
-                'Listen Audio',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              PrimaryText(topic: 'Listen Audio'),
+              // const Text(
+              //   'Listen Audio',
+              //   style: TextStyle(
+              //     fontSize: 20,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              // ),
               const SizedBox(height: 10),
               GestureDetector(
                 onTap: () {

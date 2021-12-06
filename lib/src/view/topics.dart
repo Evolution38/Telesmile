@@ -5,6 +5,9 @@ import 'package:telesmile/src/constants/loggers.dart';
 import 'package:telesmile/src/models/topic_model.dart';
 import 'package:telesmile/src/services/http_services.dart';
 import 'package:telesmile/src/view/widgets/appbar.dart';
+import 'package:telesmile/src/view/widgets/texts.dart';
+
+import 'action_on_topic.dart';
 import 'drawerpage/drawer.dart';
 
 @immutable class Topics extends StatefulWidget {
@@ -44,36 +47,21 @@ class _TopicsState extends State<Topics> {
       )
       : SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const SizedBox(height: 30),
-              Text(
-                topics.resultArray[0].catTitle+ " " + topics.resultArray[0].catSubTitle,
-                // 'Title',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  
-                ),
-              ),
-              const SizedBox(height: 25),
-              Text(
-                topics.resultArray[0].catDesc,
-                textAlign: TextAlign.justify,
-                style: TextStyle(
-                  fontSize: 18.5,
-                ),
+              const SizedBox(height: 20),
+              AppText(
+                heading:topics.resultArray[0].catTitle+ " " + topics.resultArray[0].catSubTitle,
               ),
               const SizedBox(height: 20),
-              Text(
-                topics.resultArray![0].catArabDesc,
-                textAlign: TextAlign.justify,
-                style: TextStyle(
-                  fontSize: 16.5,
-                  fontWeight: FontWeight.bold,
-                ),
+              LocalText(
+                topic: topics.resultArray[0].catDesc,
+              ),
+              const SizedBox(height: 20),
+              Arabic(
+                arabic: topics.resultArray![0].catArabDesc,
               ),
               ListView.builder(
                 shrinkWrap: true,
@@ -118,6 +106,37 @@ class _TopicsState extends State<Topics> {
                   );
                 },
               ),
+
+              // ignore: prefer_const_constructors
+              // SizedBox(height: 10),
+              // AppText(heading:'Oral for Blind',),
+              // const SizedBox(height: 10),
+              // LocalText(topic: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Cras pulvinar pellentesque in',),
+              // const SizedBox(height: 10),
+              // Arabic(arabic:'.لكل نع مغرلاب ةنيدم يسرك ,دقو نويدلاو ريوطت مت فلاو الا لك .ندم يف ملاعلا ةيملاع ,مت يفو راصتقاو طيحملا'),
+              // const SizedBox(height: 20),
+              // Container(
+              //   decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(10),
+              //       border: Border.all(width: 3, color: const Color(0xFFFCB117))),
+              //   child: ListTile(
+              //     onTap: () {
+              //       Navigator.push(context,
+              //           MaterialPageRoute(builder: (context) =>  const ActionsonTopic()));
+              //     },
+              //     leading: Image.asset(
+              //       'assets/blind men.png',
+              //       fit: BoxFit.fill,
+              //     ),
+              //     title: const Text(
+              //       'Title',
+              //       style: TextStyle(
+              //         fontSize: 20,
+              //         fontWeight: FontWeight.bold,
+              //       ),
+              //     )
+              // ),)
+              SizedBox(height: 10)
             ],
           ),
         ),

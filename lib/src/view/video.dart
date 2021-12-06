@@ -58,7 +58,6 @@ class _VideoPageState extends State<VideoPage> {
     //   _videoPlayerController!.setLooping(true);
     // });
   }
-
   @override
   void dispose() {
     _videoPlayerController!.dispose();
