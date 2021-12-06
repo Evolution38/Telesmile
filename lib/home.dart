@@ -9,6 +9,7 @@ import 'package:telesmile/src/services/http_services.dart';
 import 'package:telesmile/src/view/action_on_topic.dart';
 import 'package:telesmile/src/view/contactus.dart';
 import 'package:telesmile/src/view/drawerpage/drawer.dart';
+import 'package:telesmile/src/view/topics.dart';
 import 'package:telesmile/src/view/widgets/appbar.dart';
 
 class HomePage extends StatefulWidget {
@@ -80,9 +81,13 @@ class _HomePageState extends State<HomePage> {
                           child: InkWell(
                             onTap: () {
                               Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => ActionsonTopic()));
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => Topics(
+                                      categoryid:
+                                          getCategory.category[index].catId),
+                                ),
+                              );
                             },
                             child: Column(
                               children: [

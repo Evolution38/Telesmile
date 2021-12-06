@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'TeleSmile',
       theme: ThemeData(primaryColor: Colors.yellow),
-      home: Audio(),
+      home: Splash(),
     );
   }
 }

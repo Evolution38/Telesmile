@@ -50,7 +50,6 @@
 //   }
 // }
 
-
 // //**Nothing */
 // // import 'package:flutter/material.dart';
 
@@ -70,21 +69,19 @@
 // //   }
 // // }
 
-
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'audio_player_buttons.dart';
 
 class Audio extends StatefulWidget {
-  const Audio({ Key? key }) : super(key: key);
+  const Audio({Key? key}) : super(key: key);
 
   @override
   _AudioState createState() => _AudioState();
 }
 
 class _AudioState extends State<Audio> {
-
   late final AudioManager _audioManager;
 
   @override
@@ -98,55 +95,61 @@ class _AudioState extends State<Audio> {
     _audioManager.dispose();
     super.dispose();
   }
- 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              const Spacer(),
-              ValueListenableBuilder<ProgressBarState>(
-                valueListenable: _audioManager.progressNotifier,
-                builder: (_, value, __) {
-                  return ProgressBar(
-                    progress: value.current,
-                    buffered: value.buffered,
-                    total: value.total,
-                    onSeek: _audioManager.seek,
-                  );
-                },
-              ),
-              ValueListenableBuilder<ButtonState>(
-                valueListenable: _audioManager.buttonNotifier,
-                builder: (_, value, __) {
-                  switch (value) {
-                    case ButtonState.loading:
-                      return Container(
-                        margin: const EdgeInsets.all(8.0),
-                        width: 32.0,
-                        height: 32.0,
-                        child: const CircularProgressIndicator(),
-                      );
-                    case ButtonState.paused:
-                      return IconButton(
-                        icon: const Icon(Icons.play_arrow),
-                        iconSize: 32.0,
-                        onPressed: _audioManager.play,
-                      );
-                    case ButtonState.playing:
-                      return IconButton(
-                        icon: const Icon(Icons.pause),
-                        iconSize: 32.0,
-                        onPressed: _audioManager.pause,
-                      );
-                  }
-                },
-              ),
-            ],
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          const Image(
+            image: AssetImage(
+              'assets/audio-file.jpg',
+            ),
           ),
-        ),
-      );
+          // const Spacer(),
+          ValueListenableBuilder<ProgressBarState>(
+            valueListenable: _audioManager.progressNotifier,
+            builder: (_, value, __) {
+              return Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ProgressBar(
+                  progress: value.current,
+                  buffered: value.buffered,
+                  total: value.total,
+                  onSeek: _audioManager.seek,
+                ),
+              );
+            },
+          ),
+          ValueListenableBuilder<ButtonState>(
+            valueListenable: _audioManager.buttonNotifier,
+            builder: (_, value, __) {
+              switch (value) {
+                case ButtonState.loading:
+                  return Container(
+                    margin: const EdgeInsets.all(8.0),
+                    width: 32.0,
+                    height: 32.0,
+                    child: const CircularProgressIndicator(),
+                  );
+                case ButtonState.paused:
+                  return IconButton(
+                    icon: const Icon(Icons.play_arrow),
+                    iconSize: 32.0,
+                    onPressed: _audioManager.play,
+                  );
+                case ButtonState.playing:
+                  return IconButton(
+                    icon: const Icon(Icons.pause),
+                    iconSize: 32.0,
+                    onPressed: _audioManager.pause,
+                  );
+              }
+            },
+          ),
+        ],
+      ),
+    );
   }
 }
