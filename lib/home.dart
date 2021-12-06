@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:telesmile/src/constants/loggers.dart';
 import 'package:telesmile/src/models/get_category_model.dart';
 import 'package:telesmile/src/services/http_services.dart';
+import 'package:telesmile/src/view/action_on_topic.dart';
 import 'package:telesmile/src/view/contactus.dart';
 import 'package:telesmile/src/view/drawerpage/drawer.dart';
 import 'package:telesmile/src/view/widgets/appbar.dart';
@@ -76,37 +77,45 @@ class _HomePageState extends State<HomePage> {
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: Card(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30.0),
-                                  ),
-                                  child: Container(
-                                    child: Image(
-                                      image: CachedNetworkImageProvider(
-                                          getCategory.category[index].catImg),
-                                      fit: BoxFit.fill,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => ActionsonTopic()));
+                            },
+                            child: Column(
+                              children: [
+                                Expanded(
+                                  child: Card(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30.0),
+                                    ),
+                                    child: Container(
+                                      child: Image(
+                                        image: CachedNetworkImageProvider(
+                                            getCategory.category[index].catImg),
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
                                   ),
                                 ),
-                              ),
-                              Text(
-                                getCategory.category[index].catTitle,
-                                style: TextStyle(
-                                  fontSize: 20,
+                                Text(
+                                  getCategory.category[index].catTitle,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                getCategory.category[index].catSubTitle,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFFFCB117),
-                                ),
-                              )
-                            ],
+                                Text(
+                                  getCategory.category[index].catSubTitle,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFFFCB117),
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         );
                       }),

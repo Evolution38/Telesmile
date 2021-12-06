@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_constructors, unused_import
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:telesmile/src/view/audio/audio.dart';
 import 'package:telesmile/src/view/widgets/navscreen.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'TeleSmile',
       theme: ThemeData(primaryColor: Colors.yellow),
-      home: Splash(),
+      home: Audio(),
     );
   }
 }
