@@ -7,10 +7,11 @@ import 'package:telesmile/src/services/http_services.dart';
 import 'package:telesmile/src/view/widgets/appbar.dart';
 import 'package:telesmile/src/view/widgets/texts.dart';
 
-import 'action_on_topic.dart';
+import 'topics_details.dart';
 import 'drawerpage/drawer.dart';
 
-@immutable class Topics extends StatefulWidget {
+@immutable
+class Topics extends StatefulWidget {
   final String categoryid;
   const Topics({required this.categoryid});
   // const Topics({Key? key}) : super(key: key);
@@ -42,105 +43,118 @@ class _TopicsState extends State<Topics> {
     return Scaffold(
       appBar: MyAppBar(),
       drawer: const MyDrawer(),
-      body: isLoading ? Center(
-        child: CircularProgressIndicator(),
-      )
-      : SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const SizedBox(height: 20),
-              AppText(
-                heading:topics.resultArray[0].catTitle+ " " + topics.resultArray[0].catSubTitle,
-              ),
-              const SizedBox(height: 20),
-              LocalText(
-                topic: topics.resultArray[0].catDesc,
-              ),
-              const SizedBox(height: 20),
-              Arabic(
-                arabic: topics.resultArray![0].catArabDesc,
-              ),
-              ListView.builder(
-                shrinkWrap: true,
-                physics: const ScrollPhysics(),
-                itemCount: topics.resultArray[0].topic.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(top: 30.0),
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.1,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        border: Border.all(
-                          width: 3,
-                          color: const Color(0xFFFCB117),
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.1,
-                            width: MediaQuery.of(context).size.width * 0.35,
-                            child: Image.asset(
-                              'assets/blind men.png',
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                          SizedBox(width: 25),
-                          Expanded(
-                            child: Text(
-                              topics.resultArray![0].topic![index].title,
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+      body: isLoading
+          ? Center(
+              child: CircularProgressIndicator(),
+            )
+          : SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AppText(
+                      heading: topics.resultArray[0].catTitle +
+                          " " +
+                          topics.resultArray[0].catSubTitle,
+                    ),
+                    const SizedBox(height: 20),
+                    LocalText(
+                      topic: topics.resultArray[0].catDesc,
+                    ),
+                    const SizedBox(height: 20),
+                    Arabic(
+                      arabic: topics.resultArray![0].catArabDesc,
+                    ),
+                    ListView.builder(
+                      shrinkWrap: true,
+                      physics: const ScrollPhysics(),
+                      itemCount: topics.resultArray[0].topic.length,
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => TopicDetails(topicid: topics.resultArray[0].topic[index].topicId)));
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 30.0),
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.1,
+                              width: MediaQuery.of(context).size.width,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                border: Border.all(
+                                  width: 3,
+                                  color: const Color(0xFFFCB117),
+                                ),
+                              ),
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.1,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.35,
+                                    child: Image.asset(
+                                      'assets/blind men.png',
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                  SizedBox(width: 25),
+                                  Expanded(
+                                    child: Text(
+                                      topics
+                                          .resultArray![0].topic![index].title,
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
-                  );
-                },
-              ),
 
-              // ignore: prefer_const_constructors
-              // SizedBox(height: 10),
-              // AppText(heading:'Oral for Blind',),
-              // const SizedBox(height: 10),
-              // LocalText(topic: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Cras pulvinar pellentesque in',),
-              // const SizedBox(height: 10),
-              // Arabic(arabic:'.لكل نع مغرلاب ةنيدم يسرك ,دقو نويدلاو ريوطت مت فلاو الا لك .ندم يف ملاعلا ةيملاع ,مت يفو راصتقاو طيحملا'),
-              // const SizedBox(height: 20),
-              // Container(
-              //   decoration: BoxDecoration(
-              //       borderRadius: BorderRadius.circular(10),
-              //       border: Border.all(width: 3, color: const Color(0xFFFCB117))),
-              //   child: ListTile(
-              //     onTap: () {
-              //       Navigator.push(context,
-              //           MaterialPageRoute(builder: (context) =>  const ActionsonTopic()));
-              //     },
-              //     leading: Image.asset(
-              //       'assets/blind men.png',
-              //       fit: BoxFit.fill,
-              //     ),
-              //     title: const Text(
-              //       'Title',
-              //       style: TextStyle(
-              //         fontSize: 20,
-              //         fontWeight: FontWeight.bold,
-              //       ),
-              //     )
-              // ),)
-              SizedBox(height: 10)
-            ],
-          ),
-        ),
-      ),
+                    // ignore: prefer_const_constructors
+                    // SizedBox(height: 10),
+                    // AppText(heading:'Oral for Blind',),
+                    // const SizedBox(height: 10),
+                    // LocalText(topic: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Cras pulvinar pellentesque in',),
+                    // const SizedBox(height: 10),
+                    // Arabic(arabic:'.لكل نع مغرلاب ةنيدم يسرك ,دقو نويدلاو ريوطت مت فلاو الا لك .ندم يف ملاعلا ةيملاع ,مت يفو راصتقاو طيحملا'),
+                    // const SizedBox(height: 20),
+                    // Container(
+                    //   decoration: BoxDecoration(
+                    //       borderRadius: BorderRadius.circular(10),
+                    //       border: Border.all(width: 3, color: const Color(0xFFFCB117))),
+                    //   child: ListTile(
+                    //     onTap: () {
+                    //       Navigator.push(context,
+                    //           MaterialPageRoute(builder: (context) =>  const ActionsonTopic()));
+                    //     },
+                    //     leading: Image.asset(
+                    //       'assets/blind men.png',
+                    //       fit: BoxFit.fill,
+                    //     ),
+                    //     title: const Text(
+                    //       'Title',
+                    //       style: TextStyle(
+                    //         fontSize: 20,
+                    //         fontWeight: FontWeight.bold,
+                    //       ),
+                    //     )
+                    // ),)
+                    SizedBox(height: 20)
+                  ],
+                ),
+              ),
+            ),
     );
   }
 }

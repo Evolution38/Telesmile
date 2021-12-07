@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, must_be_immutable, use_key_in_widget_constructors
 
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +7,8 @@ import 'package:video_player/video_player.dart';
 import 'package:flutter/services.dart';
 
 class VideoPage extends StatefulWidget {
-  const VideoPage({Key? key}) : super(key: key);
+  String? videolink;
+  VideoPage({required this.videolink});
 
   @override
   _VideoPageState createState() => _VideoPageState();
@@ -22,7 +23,7 @@ class _VideoPageState extends State<VideoPage> {
   void initState() {
     super.initState();
     _videoPlayerController = VideoPlayerController.network(
-        'https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4');
+        widget.videolink!);
     _chewieController = ChewieController(
       allowedScreenSleep: false,
       // looping: true,
@@ -58,6 +59,7 @@ class _VideoPageState extends State<VideoPage> {
     //   _videoPlayerController!.setLooping(true);
     // });
   }
+
   @override
   void dispose() {
     _videoPlayerController!.dispose();

@@ -10,10 +10,19 @@ class HttpService {
     return jsonData;
   }
 }
-  Future getTopicsModel({required String id}) async {
-    var url =
-        "http://studyleagueit.com/telesmile/app_apis/topics.php?cat_id= $id";
-    var response = await http.get(Uri.parse(url));
-    var jsonData = json.decode(response.body);
-    return jsonData;
-  }
+
+Future getTopicsModel({required String id}) async {
+  var url =
+      "http://studyleagueit.com/telesmile/app_apis/topics.php?cat_id= $id";
+  var response = await http.get(Uri.parse(url));
+  var jsonData = json.decode(response.body);
+  return jsonData;
+}
+
+Future getTopicDetailsModel({required String id}) async {
+  var url =
+      "http://studyleagueit.com/telesmile/app_apis/topic_details.php?topic_id= $id";
+  var response = await http.get(Uri.parse(url));
+  var jsonData = json.decode(response.body);
+  return jsonData;
+}

@@ -1,21 +1,18 @@
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, must_be_immutable
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
 class ImagePage extends StatefulWidget {
-  const ImagePage({Key? key}) : super(key: key);
-
+  List? topicimages;
+  // ignore: use_key_in_widget_constructors
+  ImagePage({required this.topicimages});
   @override
   State<ImagePage> createState() => _ImagePageState();
 }
 
 class _ImagePageState extends State<ImagePage> {
-  final imageList = [
-    'https://images.news18.com/ibnlive/uploads/2021/07/1627476684_whatsapp-image-2021-07-28-at-6.20.42-pm-1600x900.png',
-    'https://assets.unenvironment.org/styles/article_billboard_image/s3/2021-05/alberta-2297204_1920.jpg?h=1483c54f&amp;itok=GdjA9GRu',
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg/1200px-Altja_j%C3%B5gi_Lahemaal.jpg'
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,10 +21,11 @@ class _ImagePageState extends State<ImagePage> {
       //   centerTitle: true,
       // ),
       body: PhotoViewGallery.builder(
-        itemCount: imageList.length,
+        itemCount: widget.topicimages!.length,
         builder: (context, index) {
           return PhotoViewGalleryPageOptions(
-            imageProvider: NetworkImage(imageList[index]),
+            imageProvider:
+                CachedNetworkImageProvider(widget.topicimages![index]),
             minScale: PhotoViewComputedScale.contained * 1,
             maxScale: PhotoViewComputedScale.covered * 1,
           );
@@ -53,3 +51,4 @@ class _ImagePageState extends State<ImagePage> {
     );
   }
 }
+// images.add(topicDetails.resultArray[0].imageArray[i].imagePath);
