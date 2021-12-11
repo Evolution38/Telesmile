@@ -1,10 +1,10 @@
-// ignore_for_file: must_be_immutable
+// ignore_for_file: must_be_immutable, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 
 AppBar Header(String header) {
   return AppBar(
-    title: Text(header,style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
+    title: Text(header,style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
     centerTitle: true,
     backgroundColor: Colors.transparent,
     elevation: 0.0,

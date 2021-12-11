@@ -6,7 +6,7 @@ import 'drawer.dart';
 import 'header.dart';
 
 class TermsUse extends StatefulWidget {
-  TermsUse({Key? key}) : super(key: key);
+  const TermsUse({Key? key}) : super(key: key);
 
   @override
   _TermsUseState createState() => _TermsUseState();

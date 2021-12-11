@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, use_key_in_widget_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, use_key_in_widget_constructors, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 import 'package:telesmile/src/constants/loggers.dart';
@@ -120,36 +120,6 @@ class _TopicsState extends State<Topics> {
                         );
                       },
                     ),
-
-                    // ignore: prefer_const_constructors
-                    // SizedBox(height: 10),
-                    // AppText(heading:'Oral for Blind',),
-                    // const SizedBox(height: 10),
-                    // LocalText(topic: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.Cras pulvinar pellentesque in',),
-                    // const SizedBox(height: 10),
-                    // Arabic(arabic:'.لكل نع مغرلاب ةنيدم يسرك ,دقو نويدلاو ريوطت مت فلاو الا لك .ندم يف ملاعلا ةيملاع ,مت يفو راصتقاو طيحملا'),
-                    // const SizedBox(height: 20),
-                    // Container(
-                    //   decoration: BoxDecoration(
-                    //       borderRadius: BorderRadius.circular(10),
-                    //       border: Border.all(width: 3, color: const Color(0xFFFCB117))),
-                    //   child: ListTile(
-                    //     onTap: () {
-                    //       Navigator.push(context,
-                    //           MaterialPageRoute(builder: (context) =>  const ActionsonTopic()));
-                    //     },
-                    //     leading: Image.asset(
-                    //       'assets/blind men.png',
-                    //       fit: BoxFit.fill,
-                    //     ),
-                    //     title: const Text(
-                    //       'Title',
-                    //       style: TextStyle(
-                    //         fontSize: 20,
-                    //         fontWeight: FontWeight.bold,
-                    //       ),
-                    //     )
-                    // ),)
                     SizedBox(height: 20)
                   ],
                 ),

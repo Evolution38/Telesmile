@@ -1,11 +1,13 @@
+// ignore_for_file: must_be_immutable, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
 import 'audio_player_buttons.dart';
 
 class AudioPage extends StatefulWidget {
-  String audiolink;
-  AudioPage({required this.audiolink});
+  List audiolink = [];
+  AudioPage({Key? key, required this.audiolink}) : super(key: key);
 
   @override
   _AudioPageState createState() => _AudioPageState();
@@ -18,14 +20,10 @@ class _AudioPageState extends State<AudioPage> {
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
-    _audioPlayer!
-        .setAudioSource(ConcatenatingAudioSource(children: [
-      AudioSource.uri(Uri.parse(
-          widget.audiolink))
-    ]))
-        .catchError((error) {
-      print("[Audio] data An error occured $error");
-    });
+      _audioPlayer!.setAudioSource(ConcatenatingAudioSource(children: [
+        AudioSource.uri(Uri.parse(''))
+        // AudioSource.uri(Uri.parse(i))
+      ]));
   }
 
   @override

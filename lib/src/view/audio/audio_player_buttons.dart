@@ -11,11 +11,9 @@
 
 // import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 // import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
-import 'package:audio_service/audio_service.dart';
-import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:rxdart/rxdart.dart';
+import 'package:telesmile/src/constants/loggers.dart';
 
 class PlayerButtons extends StatefulWidget {
   final AudioPlayer _audioPlayer;
@@ -45,11 +43,23 @@ class _PlayerButtonsState extends State<PlayerButtons> {
                 return _previousButton();
               },
             ),
-            StreamBuilder<PlayerState?>(
+            StreamBuilder<PlayerState>(
               stream: widget._audioPlayer.playerStateStream,
-              builder: (_, snapshot) {
-                final playerState = snapshot.data!;
-                return _playPauseButton(playerState);
+              builder: (_, snapshot)  {
+                final playerState = snapshot.data;
+                return _playPauseButton(playerState!);
+                // var playerState;
+                // if (snapshot.hasData) {
+                //   logger.d("[Audio_Player_Buttons] SnapShot.data :" +
+                //       snapshot.data.toString());
+                //   playerState = snapshot.data;
+                //   return _playPauseButton(playerState!);
+                // } else if (snapshot.hasError) {
+                //   logger.d("${snapshot.hasError}");
+                //   return Text("${snapshot.hasError}");
+                // } else {
+                //   return _playPauseButton(playerState!);
+                // }
               },
             ),
             StreamBuilder(

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, unused_local_variable, prefer_const_constructors, prefer_const_constructors_in_immutables
+// ignore_for_file: prefer_const_literals_to_create_immutables, unused_local_variable, prefer_const_constructors, prefer_const_constructors_in_immutables, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,7 +13,7 @@ import 'image.dart';
 
 class TopicDetails extends StatefulWidget {
   final String topicid;
-  TopicDetails({required this.topicid});
+  TopicDetails({Key? key, required this.topicid}) : super(key: key);
 
   @override
   State<TopicDetails> createState() => _TopicDetailsState();
@@ -170,7 +170,7 @@ class _TopicDetailsState extends State<TopicDetails> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => AudioPage(audiolink: topicDetails.resultArray[0].audioLink),
+                            builder: (context) => AudioPage(audiolink: [topicDetails.resultArray[0].audioLink,'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3']),
                           ),
                         );
                       },
