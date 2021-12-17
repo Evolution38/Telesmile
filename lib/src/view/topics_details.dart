@@ -83,7 +83,7 @@ class _TopicDetailsState extends State<TopicDetails> {
                           //*! Long English Discription
                           Html(data: topicDetails.resultArray[0].description),
                           SizedBox(height: 20),
-                          //*! Long English Discription
+                          //*! Long English Discription*//
                           Html(data: topicDetails.resultArray[0].descriptionAr)
                         ],
                       ),
