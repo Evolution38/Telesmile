@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
+import 'package:telesmile/src/view/widgets/header.dart';
 
 class ImagePage extends StatefulWidget {
   List? topicimages;
@@ -16,10 +17,7 @@ class _ImagePageState extends State<ImagePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text('ImagePage'),
-      //   centerTitle: true,
-      // ),
+      appBar: Header('Images'),
       body: PhotoViewGallery.builder(
         itemCount: widget.topicimages!.length,
         builder: (context, index) {

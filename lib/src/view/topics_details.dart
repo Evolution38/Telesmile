@@ -1,11 +1,13 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, unused_local_variable, prefer_const_constructors, prefer_const_constructors_in_immutables, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:telesmile/src/constants/loggers.dart';
 import 'package:telesmile/src/models/topic_details_model.dart';
 import 'package:telesmile/src/services/http_services.dart';
 import 'package:telesmile/src/view/video.dart';
+import 'package:telesmile/src/view/widgets/header.dart';
 import 'package:telesmile/src/view/widgets/texts.dart';
 
 import 'audio/audio.dart';
@@ -46,19 +48,25 @@ class _TopicDetailsState extends State<TopicDetails> {
             body: Center(child: CircularProgressIndicator()),
           )
         : Scaffold(
-            appBar: AppBar(
-              title: AppText(heading: topicDetails.resultArray[0].title),
-              backgroundColor: Colors.transparent,
-              elevation: 0.0,
-              iconTheme: const IconThemeData(color: Colors.black),
-              centerTitle: true,
-            ),
+            //*!AppBar Having Title
+            appBar: Header(topicDetails.resultArray[0].title),
+            // AppBar(
+            //   title: AppText(heading: topicDetails.resultArray[0].title),
+            //   backgroundColor: Colors.transparent,
+            //   elevation: 0.0,
+            //   iconTheme: const IconThemeData(color: Colors.black),
+            //   centerTitle: true,
+            // ),
             body: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                // padding: EdgeInsets.zero,
                 child: Column(
                   children: [
+                    //*! Short English Discription
                     English(text: topicDetails.resultArray[0].shortDesc),
+                    SizedBox(height: 30),
+                    //*! Short Arabic Discription
                     Arabic(
                       arabic: topicDetails.resultArray[0].shortArabDesc,
                     ),
@@ -70,10 +78,16 @@ class _TopicDetailsState extends State<TopicDetails> {
                         border: Border.all(
                             width: 3, color: const Color(0xFFFCB117)),
                       ),
-                      child: English(
-                        text: topicDetails.resultArray[0].description,
+                      child: Column(
+                        children: [
+                          //*! Long English Discription
+                          Html(data: topicDetails.resultArray[0].description),
+                          SizedBox(height: 20),
+                          //*! Long English Discription
+                          Html(data: topicDetails.resultArray[0].descriptionAr)
+                        ],
                       ),
-                      width: 350,
+                      width: MediaQuery.of(context).size.width,
                     ),
                     const SizedBox(height: 25),
                     PrimaryText(
@@ -130,15 +144,21 @@ class _TopicDetailsState extends State<TopicDetails> {
                     const SizedBox(height: 10),
                     GestureDetector(
                       onTap: () {
-                        screenDisplay = SystemChrome.setEnabledSystemUIMode(
-                            SystemUiMode.manual,
-                            overlays: [SystemUiOverlay.bottom]);
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => VideoPage(videolink: topicDetails.resultArray[0].videoLink),
-                          ),
-                        );
+                        setState(() {});
+                        pushNewScreen(context,
+                            screen: VideoPlayerScreen(
+                                videolink:
+                                    topicDetails.resultArray[0].videoLink),
+                            withNavBar: false);
+                        // screenDisplay = SystemChrome.setEnabledSystemUIMode(
+                        //     SystemUiMode.manual,
+                        //     overlays: [SystemUiOverlay.bottom,SystemUiOverlay.top]);
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //     builder: (context) => VideoPlayerScreen(videolink: topicDetails.resultArray[0].videoLink,),
+                        //   ),
+                        // );
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -170,7 +190,9 @@ class _TopicDetailsState extends State<TopicDetails> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => AudioPage(audiolink: [topicDetails.resultArray[0].audioLink,'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3']),
+                            builder: (context) => AudioPage(
+                                audiolink:
+                                    topicDetails.resultArray[0].audioLink),
                           ),
                         );
                       },

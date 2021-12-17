@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:telesmile/src/constants/loggers.dart';
+import 'package:telesmile/src/models/get_category_model.dart';
 import 'package:telesmile/src/models/topic_model.dart';
 import 'package:telesmile/src/services/http_services.dart';
 import 'package:telesmile/src/view/widgets/appbar.dart';
@@ -13,7 +14,8 @@ import 'drawerpage/drawer.dart';
 @immutable
 class Topics extends StatefulWidget {
   final String categoryid;
-  const Topics({required this.categoryid});
+  String? arabicname;
+  Topics({required this.categoryid, this.arabicname});
   // const Topics({Key? key}) : super(key: key);
 
   @override
@@ -42,30 +44,31 @@ class _TopicsState extends State<Topics> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MyAppBar(),
-      drawer: const MyDrawer(),
       body: isLoading
           ? Center(
               child: CircularProgressIndicator(),
             )
           : SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(left: 12.0, right: 12.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    //*! Category Title in English
                     AppText(
                       heading: topics.resultArray[0].catTitle +
                           " " +
                           topics.resultArray[0].catSubTitle,
                     ),
-                    const SizedBox(height: 20),
-                    LocalText(
-                      topic: topics.resultArray[0].catDesc,
-                    ),
-                    const SizedBox(height: 20),
-                    Arabic(
-                      arabic: topics.resultArray![0].catArabDesc,
-                    ),
+                    const SizedBox(height: 5),
+                    //*! Category Description in English
+                    English(text: topics.resultArray[0].catDesc),
+                    const SizedBox(height: 30),
+                    //*! Category Title in Arabic
+                    AppText(heading: widget.arabicname),
+                    const SizedBox(height: 5),
+                    //*! Category Description in Arabic
+                    Arabic(arabic: topics.resultArray![0].catArabDesc),
                     ListView.builder(
                       shrinkWrap: true,
                       physics: const ScrollPhysics(),
@@ -76,12 +79,14 @@ class _TopicsState extends State<Topics> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (_) => TopicDetails(topicid: topics.resultArray[0].topic[index].topicId)));
+                                    builder: (_) => TopicDetails(
+                                        topicid: topics.resultArray[0]
+                                            .topic[index].topicId)));
                           },
                           child: Padding(
                             padding: const EdgeInsets.only(top: 30.0),
                             child: Container(
-                              height: MediaQuery.of(context).size.height * 0.1,
+                              // height: MediaQuery.of(context).size.height*0.1,
                               width: MediaQuery.of(context).size.width,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(8),
@@ -91,18 +96,23 @@ class _TopicsState extends State<Topics> {
                                 ),
                               ),
                               child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.1,
-                                    width: MediaQuery.of(context).size.width *
-                                        0.35,
-                                    child: Image.asset(
-                                      'assets/blind men.png',
-                                      fit: BoxFit.fill,
+                                  IntrinsicHeight(
+                                    child: SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.1,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.35,
+                                      child: Image.asset(
+                                        'assets/blind men.png',
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
                                   ),
-                                  SizedBox(width: 25),
+                                  SizedBox(width: 12),
                                   Expanded(
                                     child: Text(
                                       topics

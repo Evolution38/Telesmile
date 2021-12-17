@@ -5,35 +5,38 @@ import 'package:telesmile/home.dart';
 import 'package:telesmile/src/view/drawerpage/privacypolicy.dart';
 import 'package:telesmile/src/view/drawerpage/terms_conditions.dart';
 import 'package:telesmile/src/view/drawerpage/termsuse.dart';
+import 'package:telesmile/src/view/widgets/navscreen.dart';
 
 class MyDrawer extends StatelessWidget {
-  const MyDrawer({ Key? key }) : super(key: key);
+  const MyDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Drawer ( 
+    return Drawer(
       child: ListView(
-        children:  [
+        children: [
           DrawerHeader(
-            child:Image(image: AssetImage('assets/Group 21.png')), 
+            child: Image(image: AssetImage('assets/Group 21.png')),
           ),
-          ListTile(
-            leading: Icon(
-              Icons.home,
-              color: Colors.black,
-            ),
-            title: Text(
-              "Home",
-              textScaleFactor: 1.2,
-              style: TextStyle(
-                color: Colors.black,
-              ),
-            ),
-            onTap: (){
-               Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
-            },
-          ),
+          // ListTile(
+          //   leading: Icon(
+          //     Icons.home,
+          //     color: Colors.black,
+          //   ),
+          //   title: Text(
+          //     "Home",
+          //     textScaleFactor: 1.2,
+          //     style: TextStyle(
+          //       color: Colors.black,
+          //     ),
+          //   ),
+          //   onTap: () {
+          //     Navigator.pushAndRemoveUntil(
+          //         context,
+          //         MaterialPageRoute(builder: (_) => NavScreen()),
+          //         (route) => false);
+          //   },
+          // ),
           ListTile(
             leading: Icon(
               Icons.description,
@@ -46,9 +49,9 @@ class MyDrawer extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            onTap: (){
-               Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TermsConditions()));
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (_) => TermsConditions()));
             },
           ),
           ListTile(
@@ -63,9 +66,9 @@ class MyDrawer extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-            onTap: (){
-               Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PrivacyPolicy()));
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => PrivacyPolicy()));
             },
           ),
           ListTile(
@@ -80,9 +83,9 @@ class MyDrawer extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-             onTap: (){
-               Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => TermsUse()));
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => TermsUse()));
             },
           ),
         ],

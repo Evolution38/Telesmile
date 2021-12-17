@@ -5,7 +5,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'drawer.dart';
-import 'header.dart';
+import '../widgets/header.dart';
 
 class PrivacyPolicy extends StatelessWidget {
   const PrivacyPolicy({ Key? key }) : super(key: key);
@@ -14,7 +14,6 @@ class PrivacyPolicy extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Header('Privacy policy'),
-      drawer: MyDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

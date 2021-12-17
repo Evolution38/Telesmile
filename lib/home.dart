@@ -66,8 +66,7 @@ class _HomePageState extends State<HomePage> {
                 context: context,
                 builder: (BuildContext context) => AudioPage(
                     audiolink:
-                    ['https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3']
-                        /*'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'*/),
+                        'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' /*'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'*/),
               );
             }
           },
@@ -123,7 +122,9 @@ class _HomePageState extends State<HomePage> {
                               MaterialPageRoute(
                                 builder: (_) => Topics(
                                     categoryid:
-                                        getCategory.category[index].catId),
+                                        getCategory.category[index].catId,
+                                    arabicname: getCategory
+                                        .category[index].catArabicTitle),
                               ),
                             );
                           },

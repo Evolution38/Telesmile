@@ -14,7 +14,9 @@ class _AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AppText(heading: 'About Us',),
+        title: AppText(
+          heading: 'About Us',
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -26,27 +28,9 @@ class _AboutPageState extends State<AboutPage> {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             children: [
-              // const SizedBox(height: 30),
-              // Row(
-              //   children: const [
-              //     Icon(Icons.arrow_back),
-              //     Padding(
-              //       padding: EdgeInsets.only(left: 110),
-              //       child: Text(
-              //         'Contact Us',
-              //         style: TextStyle(
-              //           fontSize: 20,
-              //           fontWeight: FontWeight.bold,
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
-              const SizedBox(height: 20),
               DropdownButton(
                 isExpanded: false,
                 value: _value,
-                // hint: const Text('Select Language'),
                 items: const [
                   DropdownMenuItem(
                     child: Center(
@@ -79,14 +63,11 @@ class _AboutPageState extends State<AboutPage> {
                       _value = 2;
                     });
                   }
-                  // setState(() {
-                  //   _value = value;
-                  // });
                 },
               ),
               const SizedBox(height: 10),
               Container(
-                height: MediaQuery.of(context).size.width * 1.2,
+                height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     // border: Border.all(
@@ -105,10 +86,64 @@ class _AboutPageState extends State<AboutPage> {
 
   _renderWidget() {
     if (_value == 1) {
-      return English(text:"Lorem ipsum dolor sit amet, consect etur adipiscing elit. Bibendum rhon cus velit dolor tellus a in est nisl. Lobortis egestas ornare ultrices ipsum sollicitudin ornare augue euenim. Adipiscing quam tincidunt vestibulum condimentum. Erat eget cursus non interdum sagittis. Nullam mauris nisl sagittis blandit turpis fermentum vitae. Sapien scelerisque ultrices id egestas. Faucibus turpis facilisi elit at. Arcu, proin eu at vitae risus donec elit. Neque at quis ultrices cras. Orci, sed iaculis fames bibendum vitae mollis. At mattis consequat congue et neque id donec malesuada eros. Non donec sagittis, odio quis pretium habitant diam vitae, cras." ,);
+      return Column(
+      children: const [
+        Text.rich(
+          TextSpan(
+            text: "ABOUT US:\n",
+            style: TextStyle(
+                fontFamily: 'Poppins', fontSize: 17, fontWeight: FontWeight.bold),
+            children: [
+              TextSpan(
+                text: "WHO WE ARE\nWe are a group of Dental intern researchers, Dr. Hamza Khan, Dr. Abdulrahman Akkam, Dr. Edrees & Dr. Sultan Korairi, along with our two supervisors, Dr. Manawar Ahmad Mansoor & Dr. Hytham Fageeh, from College of Dentistry, Jazan University, Saudi Arabia. We are dedicated to provide an efficient solution by creating the “mobile application - Telesmile” to improve the knowledge regarding the oral health care and oral hygiene practice for the individuals with disability such as Visual impairment (blindness), Deaf, Mental retardation, Autism and Down syndrome in the Kingdom of Saudi Arabia.",
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 17,
+                    fontWeight: FontWeight.w400),
+              ),
+            ],
+          ),
+          textAlign: TextAlign.justify,
+          softWrap: true,
+          textDirection: TextDirection.ltr,
+        ),
+      ],
+    ); 
     } else if (_value == 2) {
-      return 
-      Arabic(arabic:"تم تطوير والديون وقد, كرسي مدينة بالرغم عن لكل. المحيط واقتصار وفي تم, عالمية العالم في مدن. كل الا والفلبين الاندونيسية, قتيل، مهمّات ومن إذ, جهة من الفترة ارتكبها الشتوية. أما ثم أمّا بأيدي, لعملة الأرواح الأبرياء ان وصل. تعديل مدينة العدّ وقد عن. الهادي التحالف الإمتعاض حدى ما, عن جهة الأحمر وأكثرها.تشكيل تحرير الطريق قام ما, فمرّ إعادة الإيطالية أضف ٣٠, فقد بـ مقاومة الفرنسية. إعمار المسرح الوزراء ذلك أي, العصبة لليابان التاريخ، إذ ولم, مع جهة أسيا الإحتفاظ. وإيطالي الربيع، هذه قد, إيو بـ مشروط بلديهما الشّعبين. بل بال علاقة بولندا، الأمريكية, هذه مع حلّت لعدم الثالث. تحرير بتخصيص بل دار, أن قام كانت دأبوا الشرقي, ثم ويتّفق لإنعدام الا. مدن إذ عشوائية بالسيطرة الأوروبيّون, أضف أن الهادي استمرار. قررت وحرمان والفلبين ذلك تم, لم وأزيز العالمي الأثناء، بعض, فعل أم هنا؟ أحدث للحك أي معقل كُلفة أخذ, كما في مرمى للمجهود. فصل أم وبدأت وعُرفت, أدنى الشرق، أي",);
+      return Column(
+      children: const [
+        Text.rich(
+          TextSpan(
+            text: "من نحن:\n",
+            style: TextStyle(
+              fontFamily: 'Almarai',
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+            children: [
+              TextSpan(
+                text: "من نحن\nنحن مجموعة من الباحثين المتدربين في الأسنان،  د.حمزة  خان, د.عبدالرحمن العكام، د. إدريس مهدلي, د. سلطان كريري، جنبا إلى جنب مع اثنين من المشرفين لدينا، الدكتورمنور أحمد منصور والدكتور هيثم فقيه، من كلية طب الأسنان، جامعة جازان، المملكة العربية السعودية. نحن ملتزمون بتوفير حل فعال من خلال إنشاء تطبيق الهاتف المحمول - 'Telesmile' لتحسين المعرفة فيما يتعلق بالرعاية الصحية للفم وممارسة نظافة الفم للأفراد ذوي الإعاقة مثل ضعف البصر (العمى) والصم  والتخلف العقلي والتوحد ومتلازمة داون في المملكة العربية السعودية",
+                style: TextStyle(
+                    fontFamily: 'Almarai',
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400),
+              ),
+            ],
+          ),
+          textAlign: TextAlign.justify,
+          textDirection: TextDirection.rtl,
+          softWrap: true,
+        ),
+      ],
+    );
+      // LineSpanTextArab(
+      //   boldtext: "من نحن:\n",
+      //   normaltext: "من نحن\n نحن مجموعة من الباحثين المتدربين في الأسنان،  د.حمزة  خان, د.عبدالرحمن العكام، د. إدريس مهدلي, د. سلطان كريري، جنبا إلى جنب مع اثنين من المشرفين لدينا، الدكتورمنور أحمد منصور والدكتور هيثم فقيه، من كلية طب الأسنان، جامعة جازان، المملكة العربية السعودية.نحن ملتزمون بتوفير حل فعال من خلال إنشاء تطبيق الهاتف المحمو",
+      // );
+      // Arabic(
+      //     arabic:
+      //         "من نحن:\nمن نحن\n نحن مجموعة من الباحثين المتدربين في الأسنان،  د.حمزة  خان, د.عبدالرحمن العكام، د. إدريس مهدلي, د. سلطان كريري، جنبا إلى جنب مع اثنين من المشرفين لدينا، الدكتورمنور أحمد منصور والدكتور هيثم فقيه، من كلية طب الأسنان، جامعة جازان، المملكة العربية السعودية.نحن ملتزمون بتوفير حل فعال من خلال إنشاء تطبيق الهاتف المحمول 'Telesmile' لتحسين المعرفة فيما يتعلق بالرعاية الصحية للفم وممارسة نظافة الفم للأفراد ذوي الإعاقة مثل ضعف البصر (العمى) والصم  والتخلف العقلي والتوحد ومتلازمة داون في المملكة العربية السعودية"
+      // );
     }
   }
 }

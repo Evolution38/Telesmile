@@ -41,6 +41,7 @@ class Category {
         this.catId,
         this.catTitle,
         this.catSubTitle,
+        this.catArabicTitle,
         this.catDesc,
         this.catArabDesc,
         this.catImg,
@@ -50,15 +51,17 @@ class Category {
     String? catId;
     String? catTitle;
     String? catSubTitle;
+    String? catArabicTitle;
     String? catDesc;
     String? catArabDesc;
     String? catImg;
-    dynamic createdon;
+    dynamic? createdon;
 
     factory Category.fromJson(Map<String, dynamic> json) => Category(
         catId: json["cat_id"],
         catTitle: json["cat_title"],
         catSubTitle: json["cat_sub_title"],
+        catArabicTitle: json["cat_arabic_title"],
         catDesc: json["cat_desc"],
         catArabDesc: json["cat_arab_desc"],
         catImg: json["cat_img"],
@@ -69,6 +72,7 @@ class Category {
         "cat_id": catId,
         "cat_title": catTitle,
         "cat_sub_title": catSubTitle,
+        "cat_arabic_title": catArabicTitle,
         "cat_desc": catDesc,
         "cat_arab_desc": catArabDesc,
         "cat_img": catImg,

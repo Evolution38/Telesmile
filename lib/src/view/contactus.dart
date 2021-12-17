@@ -14,7 +14,9 @@ class _ContactUsState extends State<ContactUs> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AppText(heading: 'Contact Us',),
+        title: AppText(
+          heading: 'Contact Us',
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         iconTheme: const IconThemeData(color: Colors.black),
@@ -25,11 +27,9 @@ class _ContactUsState extends State<ContactUs> {
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
             children: [
-              const SizedBox(height: 20),
               DropdownButton(
                 isExpanded: false,
                 value: _value,
-                hint: const Text('Select Language'),
                 items: const [
                   DropdownMenuItem(
                     child: Center(
@@ -67,9 +67,8 @@ class _ContactUsState extends State<ContactUs> {
                   // });
                 },
               ),
-              const SizedBox(height: 10),
               Container(
-                height: MediaQuery.of(context).size.width * 1.2,
+                height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                     // border: Border.all(
@@ -88,14 +87,9 @@ class _ContactUsState extends State<ContactUs> {
 
   _renderWidget() {
     if (_value == 1) {
-      return English(
-        text:
-            "Lorem ipsum dolor sit amet, consect etur adipiscing elit. Bibendum rhon cus velit dolor tellus a in est nisl. Lobortis egestas ornare ultrices ipsum sollicitudin ornare augue euenim. Adipiscing quam tincidunt vestibulum condimentum. Erat eget cursus non interdum sagittis. Nullam mauris nisl sagittis blandit turpis fermentum vitae. Sapien scelerisque ultrices id egestas. Faucibus turpis facilisi elit at. Arcu, proin eu at vitae risus donec elit. Neque at quis ultrices cras. Orci, sed iaculis fames bibendum vitae mollis. At mattis consequat congue et neque id donec malesuada eros. Non donec sagittis, odio quis pretium habitant diam vitae, cras.",
+      return LineSpanTextEng(
+        boldtext: "CONTACT US:\n",
       );
-      // Text(
-      //   "Lorem ipsum dolor sit amet, consect etur adipiscing elit. Bibendum rhon cus velit dolor tellus a in est nisl. Lobortis egestas ornare ultrices ipsum sollicitudin ornare augue euenim. Adipiscing quam tincidunt vestibulum condimentum. Erat eget cursus non interdum sagittis. Nullam mauris nisl sagittis blandit turpis fermentum vitae. Sapien scelerisque ultrices id egestas. Faucibus turpis facilisi elit at. Arcu, proin eu at vitae risus donec elit. Neque at quis ultrices cras. Orci, sed iaculis fames bibendum vitae mollis. At mattis consequat congue et neque id donec malesuada eros. Non donec sagittis, odio quis pretium habitant diam vitae, cras.",
-      //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-      // );
     } else if (_value == 2) {
       return Arabic(
         arabic:

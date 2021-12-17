@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 import 'drawer.dart';
-import 'header.dart';
+import '../widgets/header.dart';
 
 class TermsConditions extends StatefulWidget {
   const TermsConditions({ Key? key }) : super(key: key);
@@ -17,7 +17,6 @@ class _TermsConditionsState extends State<TermsConditions> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Header('TERMS AND CONDITIONS'),
-      drawer: MyDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

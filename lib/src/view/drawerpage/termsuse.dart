@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 import 'drawer.dart';
-import 'header.dart';
+import '../widgets/header.dart';
 
 class TermsUse extends StatefulWidget {
   const TermsUse({Key? key}) : super(key: key);
@@ -17,7 +17,6 @@ class _TermsUseState extends State<TermsUse> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: Header('Terms of Use',),
-      drawer: MyDrawer(),
       body: SingleChildScrollView(
         child:Padding(
           padding: const EdgeInsets.all(8.0),
