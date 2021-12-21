@@ -8,7 +8,6 @@ AppBar Header(
 ) {
   return AppBar(
     title: Text(
-      
       header,
       // textWidthBasis: TextWidthBasis.longestLine,
       // softWrap: true,
@@ -16,19 +15,7 @@ AppBar Header(
       // overflow: TextOverflow.fade,
       textDirection: TextDirection.ltr,
       overflow: TextOverflow.fade,
-      
     ),
-    // centerTitle: true,
-    // Marquee(
-    //   text: header,
-    //   scrollAxis: Axis.horizontal,
-    //   crossAxisAlignment: CrossAxisAlignment.start,
-    //   velocity: 100.0,
-    //   accelerationDuration: const Duration(seconds: 1),
-    //   decelerationDuration: const Duration(milliseconds: 500)
-    // ),
-    /*Text(header,style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),)*/
-    // centerTitle: true,
     backgroundColor: Colors.transparent,
     elevation: 0.0,
     iconTheme: const IconThemeData(color: Colors.black),

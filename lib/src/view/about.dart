@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:telesmile/src/view/widgets/texts.dart';
 
@@ -66,17 +68,7 @@ class _AboutPageState extends State<AboutPage> {
                 },
               ),
               const SizedBox(height: 10),
-              Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    // border: Border.all(
-                    //   width: 2,
-                    //   color: Color(0xFFFCB117),
-                    // ),
-                    borderRadius: BorderRadius.circular(10)),
-                child: _renderWidget(),
-              )
+              _renderWidget(),
             ],
           ),
         ),
@@ -87,63 +79,122 @@ class _AboutPageState extends State<AboutPage> {
   _renderWidget() {
     if (_value == 1) {
       return Column(
-      children: const [
-        Text.rich(
-          TextSpan(
-            text: "ABOUT US:\n",
-            style: TextStyle(
-                fontFamily: 'Poppins', fontSize: 17, fontWeight: FontWeight.bold),
-            children: [
-              TextSpan(
-                text: "WHO WE ARE\nWe are a group of Dental intern researchers, Dr. Hamza Khan, Dr. Abdulrahman Akkam, Dr. Edrees & Dr. Sultan Korairi, along with our two supervisors, Dr. Manawar Ahmad Mansoor & Dr. Hytham Fageeh, from College of Dentistry, Jazan University, Saudi Arabia. We are dedicated to provide an efficient solution by creating the “mobile application - Telesmile” to improve the knowledge regarding the oral health care and oral hygiene practice for the individuals with disability such as Visual impairment (blindness), Deaf, Mental retardation, Autism and Down syndrome in the Kingdom of Saudi Arabia.",
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 17,
-                    fontWeight: FontWeight.w400),
-              ),
-            ],
+        children: [
+          English(
+            boldtext: "ABOUT US:\n",
+            normal:
+                "WHO WE ARE\nWe are a group of Dental intern researchers, Dr. Hamza Khan, Dr. Abdulrahman Akkam, Dr. Edrees & Dr. Sultan Korairi, along with our two supervisors, Dr. Manawar Ahmad Mansoor & Dr. Hytham Fageeh, from College of Dentistry, Jazan University, Saudi Arabia. We are dedicated to provide an efficient solution by creating the “mobile application - Telesmile” to improve the knowledge regarding the oral health care and oral hygiene practice for the individuals with disability such as Visual impairment (blindness), Deaf, Mental retardation, Autism and Down syndrome in the Kingdom of Saudi Arabia.",
           ),
-          textAlign: TextAlign.justify,
-          softWrap: true,
-          textDirection: TextDirection.ltr,
-        ),
-      ],
-    ); 
+          const SizedBox(height: 20),
+          English(
+            boldtext: "Our Mission\n",
+            normal:
+                "Our Mission is to improve the oral health status and oral hygiene practice of disabled people.",
+          ),
+          const SizedBox(height: 20),
+          English(
+            boldtext: "Our Vision\n",
+            normal:
+                "Our Vision is to provide the scientifically approved best oral health care to the individuals with disability.",
+          ),
+          const SizedBox(height: 20),
+          English(
+            boldtext: "Our Goals\n",
+            normal:
+                "To train more dental professional who can communicate with the disabled patients.To create more scientific methods to improve the oral health status of the disabled community in Saudi Arabia.",
+          ),
+        ],
+      );
     } else if (_value == 2) {
       return Column(
-      children: const [
-        Text.rich(
-          TextSpan(
-            text: "من نحن:\n",
-            style: TextStyle(
-              fontFamily: 'Almarai',
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
-            children: [
-              TextSpan(
-                text: "من نحن\nنحن مجموعة من الباحثين المتدربين في الأسنان،  د.حمزة  خان, د.عبدالرحمن العكام، د. إدريس مهدلي, د. سلطان كريري، جنبا إلى جنب مع اثنين من المشرفين لدينا، الدكتورمنور أحمد منصور والدكتور هيثم فقيه، من كلية طب الأسنان، جامعة جازان، المملكة العربية السعودية. نحن ملتزمون بتوفير حل فعال من خلال إنشاء تطبيق الهاتف المحمول - 'Telesmile' لتحسين المعرفة فيما يتعلق بالرعاية الصحية للفم وممارسة نظافة الفم للأفراد ذوي الإعاقة مثل ضعف البصر (العمى) والصم  والتخلف العقلي والتوحد ومتلازمة داون في المملكة العربية السعودية",
-                style: TextStyle(
-                    fontFamily: 'Almarai',
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400),
-              ),
-            ],
+        children: [
+          Arab(
+            boldtext: "من نحن:\n",
+            normal:
+                "من نحن\nنحن مجموعة من الباحثين المتدربين في الأسنان،  د.حمزة  خان, د.عبدالرحمن العكام، د. إدريس مهدلي, د. سلطان كريري، جنبا إلى جنب مع اثنين من المشرفين لدينا، الدكتورمنور أحمد منصور والدكتور هيثم فقيه، من كلية طب الأسنان، جامعة جازان، المملكة العربية السعودية. نحن ملتزمون بتوفير حل فعال من خلال إنشاء تطبيق الهاتف المحمول - 'Telesmile' لتحسين المعرفة فيما يتعلق بالرعاية الصحية للفم وممارسة نظافة الفم للأفراد ذوي الإعاقة مثل ضعف البصر (العمى) والصم  والتخلف العقلي والتوحد ومتلازمة داون في المملكة العربية السعودية",
           ),
-          textAlign: TextAlign.justify,
-          textDirection: TextDirection.rtl,
-          softWrap: true,
-        ),
-      ],
-    );
-      // LineSpanTextArab(
-      //   boldtext: "من نحن:\n",
-      //   normaltext: "من نحن\n نحن مجموعة من الباحثين المتدربين في الأسنان،  د.حمزة  خان, د.عبدالرحمن العكام، د. إدريس مهدلي, د. سلطان كريري، جنبا إلى جنب مع اثنين من المشرفين لدينا، الدكتورمنور أحمد منصور والدكتور هيثم فقيه، من كلية طب الأسنان، جامعة جازان، المملكة العربية السعودية.نحن ملتزمون بتوفير حل فعال من خلال إنشاء تطبيق الهاتف المحمو",
-      // );
-      // Arabic(
-      //     arabic:
-      //         "من نحن:\nمن نحن\n نحن مجموعة من الباحثين المتدربين في الأسنان،  د.حمزة  خان, د.عبدالرحمن العكام، د. إدريس مهدلي, د. سلطان كريري، جنبا إلى جنب مع اثنين من المشرفين لدينا، الدكتورمنور أحمد منصور والدكتور هيثم فقيه، من كلية طب الأسنان، جامعة جازان، المملكة العربية السعودية.نحن ملتزمون بتوفير حل فعال من خلال إنشاء تطبيق الهاتف المحمول 'Telesmile' لتحسين المعرفة فيما يتعلق بالرعاية الصحية للفم وممارسة نظافة الفم للأفراد ذوي الإعاقة مثل ضعف البصر (العمى) والصم  والتخلف العقلي والتوحد ومتلازمة داون في المملكة العربية السعودية"
-      // );
+          const SizedBox(height: 20),
+          Arab(
+            boldtext: "مهمتنا\n",
+            normal: "مهمتنا هي تحسين الحالة الصحية للفم وممارسة نظافة الفم  للأشخاص ذوي الإعاقة",
+          ),
+          const SizedBox(height: 20),
+          Arab(
+            boldtext: "رؤيتنا\n",
+            normal: "الرؤية الخاصة بنا هي توفير أفضل رعاية صحية للفم المعتمدة علميا  للأفراد ذوي الإعاقة",
+          ),
+          const SizedBox(height: 20),
+          Arab(
+            boldtext: "أهدافنا\n",
+            normal: "تدريب المزيد من أطباء الأسنان الذين يمكنهم التواصل مع المرضى المعاقين\nخلق المزيد من الأساليب العلمية لتحسين الحالة الصحية للفم في مجتمع المعاقين في المملكة العربية السعودية.",
+          ),
+        ],
+      );
     }
+  }
+}
+
+class Arab extends StatelessWidget {
+  String? boldtext;
+  String? normal;
+  Arab({
+    Key? key,
+    this.boldtext,
+    this.normal,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text.rich(
+      TextSpan(
+        text: boldtext,
+        style: const TextStyle(
+          fontFamily: 'Almarai',
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+        children: [
+          TextSpan(
+            text: normal,
+            style: const TextStyle(
+                fontFamily: 'Almarai',
+                fontSize: 18,
+                fontWeight: FontWeight.w400),
+          ),
+        ],
+      ),
+      textAlign: TextAlign.justify,
+      textDirection: TextDirection.rtl,
+      softWrap: true,
+    );
+  }
+}
+
+class English extends StatelessWidget {
+  String? boldtext;
+  String? normal;
+  English({Key? key, this.boldtext, this.normal}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text.rich(
+      TextSpan(
+        text: boldtext,
+        style: const TextStyle(
+            fontFamily: 'Poppins', fontSize: 17, fontWeight: FontWeight.bold),
+        children: [
+          TextSpan(
+            text: normal,
+            style: const TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 17,
+                fontWeight: FontWeight.w400),
+          ),
+        ],
+      ),
+      textAlign: TextAlign.justify,
+      softWrap: true,
+      textDirection: TextDirection.ltr,
+    );
   }
 }

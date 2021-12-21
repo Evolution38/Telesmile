@@ -1,22 +1,12 @@
-// ignore_for_file: prefer_const_constructors, deprecated_member_use
+// ignore_for_file: prefer_final_fields, must_be_immutable, deprecated_member_use
 
-/*
- * File: player_buttons.dart
- * Project: Flutter music player
- * Created Date: Thursday February 18th 2021
- * Author: Michele Volpato
- * -----
- * Copyright (c) 2021 Michele Volpato
- */
-
-// import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
-// import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 
 class PlayerButtons extends StatefulWidget {
-  final AudioPlayer _audioPlayer;
-  const PlayerButtons(this._audioPlayer, {Key? key}) : super(key: key);
+  PlayerButtons(this._audioPlayer, {Key? key}) : super(key: key);
+
+  late AudioPlayer _audioPlayer;
 
   @override
   State<PlayerButtons> createState() => _PlayerButtonsState();
@@ -25,43 +15,39 @@ class PlayerButtons extends StatefulWidget {
 class _PlayerButtonsState extends State<PlayerButtons> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            StreamBuilder<bool>(
-              stream: widget._audioPlayer.shuffleModeEnabledStream,
-              builder: (context, snapshot) {
-                return _shuffleButton(context, snapshot.data ?? false);
-              },
-            ),
-            StreamBuilder(
-              stream: widget._audioPlayer.sequenceStateStream,
-              builder: (_, __) {
-                return _previousButton();
-              },
-            ),
-            StreamBuilder<PlayerState>(
-              stream: widget._audioPlayer.playerStateStream,
-              builder: (_, snapshot)  {
-                final playerState = snapshot.data;
-                return _playPauseButton(playerState!);
-              },
-            ),
-            StreamBuilder(
-              stream: widget._audioPlayer.sequenceStateStream,
-              builder: (_, __) {
-                return _nextButton();
-              },
-            ),
-            StreamBuilder<LoopMode>(
-              stream: widget._audioPlayer.loopModeStream,
-              builder: (context, snapshot) {
-                return _repeatButton(context, snapshot.data ?? LoopMode.off);
-              },
-            ),
-          ],
+        StreamBuilder<bool>(
+          stream: widget._audioPlayer.shuffleModeEnabledStream,
+          builder: (context, snapshot) {
+            return _shuffleButton(context, snapshot.data ?? false);
+          },
+        ),
+        StreamBuilder<SequenceState?>(
+          stream: widget._audioPlayer.sequenceStateStream,
+          builder: (_, __) {
+            return _previousButton();
+          },
+        ),
+        StreamBuilder<PlayerState>(
+          stream: widget._audioPlayer.playerStateStream,
+          builder: (_, snapshot) {
+            final playerState = snapshot.data;
+            return _playPauseButton(playerState!);
+          },
+        ),
+        StreamBuilder<SequenceState?>(
+          stream: widget._audioPlayer.sequenceStateStream,
+          builder: (_, __) {
+            return _nextButton();
+          },
+        ),
+        StreamBuilder<LoopMode>(
+          stream: widget._audioPlayer.loopModeStream,
+          builder: (context, snapshot) {
+            return _repeatButton(context, snapshot.data ?? LoopMode.off);
+          },
         ),
       ],
     );
@@ -72,26 +58,26 @@ class _PlayerButtonsState extends State<PlayerButtons> {
     if (processingState == ProcessingState.loading ||
         processingState == ProcessingState.buffering) {
       return Container(
-        margin: EdgeInsets.all(8.0),
+        margin: const EdgeInsets.all(8.0),
         width: 64.0,
         height: 64.0,
-        child: CircularProgressIndicator(),
+        child: const CircularProgressIndicator(),
       );
     } else if (widget._audioPlayer.playing != true) {
       return IconButton(
-        icon: Icon(Icons.play_arrow),
+        icon: const Icon(Icons.play_arrow),
         iconSize: 64.0,
         onPressed: widget._audioPlayer.play,
       );
     } else if (processingState != ProcessingState.completed) {
       return IconButton(
-        icon: Icon(Icons.pause),
+        icon: const Icon(Icons.pause),
         iconSize: 64.0,
         onPressed: widget._audioPlayer.pause,
       );
     } else {
       return IconButton(
-        icon: Icon(Icons.replay),
+        icon: const Icon(Icons.replay),
         iconSize: 64.0,
         onPressed: () => widget._audioPlayer.seek(Duration.zero,
             index: widget._audioPlayer.effectiveIndices!.first),
@@ -103,7 +89,7 @@ class _PlayerButtonsState extends State<PlayerButtons> {
     return IconButton(
       icon: isEnabled
           ? Icon(Icons.shuffle, color: Theme.of(context).accentColor)
-          : Icon(Icons.shuffle),
+          : const Icon(Icons.shuffle),
       onPressed: () async {
         final enable = !isEnabled;
         if (enable) {
@@ -116,7 +102,7 @@ class _PlayerButtonsState extends State<PlayerButtons> {
 
   Widget _previousButton() {
     return IconButton(
-      icon: Icon(Icons.skip_previous),
+      icon: const Icon(Icons.skip_previous),
       onPressed: widget._audioPlayer.hasPrevious
           ? widget._audioPlayer.seekToPrevious
           : null,
@@ -125,7 +111,7 @@ class _PlayerButtonsState extends State<PlayerButtons> {
 
   Widget _nextButton() {
     return IconButton(
-      icon: Icon(Icons.skip_next),
+      icon: const Icon(Icons.skip_next),
       onPressed:
           widget._audioPlayer.hasNext ? widget._audioPlayer.seekToNext : null,
     );
@@ -133,7 +119,7 @@ class _PlayerButtonsState extends State<PlayerButtons> {
 
   Widget _repeatButton(BuildContext context, LoopMode loopMode) {
     final icons = [
-      Icon(Icons.repeat),
+      const Icon(Icons.repeat),
       Icon(Icons.repeat, color: Theme.of(context).accentColor),
       Icon(Icons.repeat_one, color: Theme.of(context).accentColor),
     ];

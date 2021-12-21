@@ -37,6 +37,7 @@ class ResultArray {
         this.catId,
         this.catTitle,
         this.catSubTitle,
+        this.catArabicTitle,
         this.catDesc,
         this.catArabDesc,
         this.topic,
@@ -46,6 +47,7 @@ class ResultArray {
     String? catId;
     String? catTitle;
     String? catSubTitle;
+    String? catArabicTitle;
     String? catDesc;
     String? catArabDesc;
     List<Topic>? topic;
@@ -55,6 +57,7 @@ class ResultArray {
         catId: json["cat_id"],
         catTitle: json["cat_title"],
         catSubTitle: json["cat_sub_title"],
+        catArabicTitle: json["cat_arabic_title"],
         catDesc: json["cat_desc"],
         catArabDesc: json["cat_arab_desc"],
         topic: List<Topic>.from(json["topic"].map((x) => Topic.fromJson(x))),
@@ -65,6 +68,7 @@ class ResultArray {
         "cat_id": catId,
         "cat_title": catTitle,
         "cat_sub_title": catSubTitle,
+        "cat_arabic_title": catArabicTitle,
         "cat_desc": catDesc,
         "cat_arab_desc": catArabDesc,
         "topic": List<dynamic>.from(topic!.map((x) => x.toJson())),
@@ -76,6 +80,7 @@ class Topic {
     Topic({
         this.topicId,
         this.title,
+        this.titleImage,
         this.shortDesc,
         this.shortArabDesc,
         this.description,
@@ -86,6 +91,7 @@ class Topic {
 
     String? topicId;
     String? title;
+    String? titleImage;
     String? shortDesc;
     String? shortArabDesc;
     String? description;
@@ -96,6 +102,7 @@ class Topic {
     factory Topic.fromJson(Map<String, dynamic> json) => Topic(
         topicId: json["topic_id"],
         title: json["title"],
+        titleImage: json["title_image"],
         shortDesc: json["short_desc"],
         shortArabDesc: json["short_arab_desc"],
         description: json["description"],
@@ -107,6 +114,7 @@ class Topic {
     Map<String, dynamic> toJson() => {
         "topic_id": topicId,
         "title": title,
+        "title_image": titleImage,
         "short_desc": shortDesc,
         "short_arab_desc": shortArabDesc,
         "description": description,

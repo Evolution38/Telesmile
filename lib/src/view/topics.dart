@@ -1,17 +1,17 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, use_key_in_widget_constructors, prefer_typing_uninitialized_variables
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:telesmile/src/constants/loggers.dart';
-import 'package:telesmile/src/models/get_category_model.dart';
 import 'package:telesmile/src/models/topic_model.dart';
 import 'package:telesmile/src/services/http_services.dart';
 import 'package:telesmile/src/view/widgets/appbar.dart';
 import 'package:telesmile/src/view/widgets/texts.dart';
 
 import 'topics_details.dart';
-import 'drawerpage/drawer.dart';
 
 @immutable
+// ignore: must_be_immutable
 class Topics extends StatefulWidget {
   final String categoryid;
   String? arabicname;
@@ -86,46 +86,32 @@ class _TopicsState extends State<Topics> {
                           child: Padding(
                             padding: const EdgeInsets.only(top: 30.0),
                             child: Container(
-                              // height: MediaQuery.of(context).size.height*0.1,
-                              width: MediaQuery.of(context).size.width,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(8),
-                                border: Border.all(
-                                  width: 3,
-                                  color: const Color(0xFFFCB117),
+                                // height: MediaQuery.of(context).size.height*0.1,
+                                width: MediaQuery.of(context).size.width,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  border: Border.all(
+                                    width: 3,
+                                    color: const Color(0xFFFCB117),
+                                  ),
                                 ),
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  IntrinsicHeight(
-                                    child: SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.1,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.35,
-                                      child: Image.asset(
-                                        'assets/blind men.png',
-                                        fit: BoxFit.fill,
+                                child: ListTile(
+                                  contentPadding: EdgeInsets.only(right: 4),
+                                  leading: Image(image: CachedNetworkImageProvider(topics.resultArray![0].topic[index].titleImage),fit: BoxFit.fill,),
+                                  // Image.asset(
+                                  //   'assets/blind men.png',
+                                  //   fit: BoxFit.fill,
+                                  // ),
+                                  title: Text(
+                                        topics
+                                            .resultArray![0].topic![index].title,
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                  SizedBox(width: 12),
-                                  Expanded(
-                                    child: Text(
-                                      topics
-                                          .resultArray![0].topic![index].title,
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                                )
+                                ),
                           ),
                         );
                       },

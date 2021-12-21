@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:telesmile/src/view/widgets/texts.dart';
 
@@ -21,6 +23,7 @@ class _ContactUsState extends State<ContactUs> {
         elevation: 0.0,
         iconTheme: const IconThemeData(color: Colors.black),
         centerTitle: true,
+        // leading: IconButton(icon: Icon(Icons.arrow_back), onPressed: () {},),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -62,22 +65,10 @@ class _ContactUsState extends State<ContactUs> {
                       _value = 2;
                     });
                   }
-                  // setState(() {
-                  //   _value = value;
-                  // });
                 },
               ),
-              Container(
-                height: MediaQuery.of(context).size.height,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    // border: Border.all(
-                    //   width: 2,
-                    //   color: Color(0xFFFCB117),
-                    // ),
-                    borderRadius: BorderRadius.circular(10)),
-                child: _renderWidget(),
-              )
+              const SizedBox(height: 10),
+              _renderWidget(),
             ],
           ),
         ),
@@ -87,18 +78,130 @@ class _ContactUsState extends State<ContactUs> {
 
   _renderWidget() {
     if (_value == 1) {
-      return LineSpanTextEng(
-        boldtext: "CONTACT US:\n",
+      return Column(
+        children: [
+          English(
+            boldtext: "CONTACT US:\n",
+            normal:
+                "1:\tDr Manawar Ahmad Mansoor\nAssistant Professor\t\nDepartment of Prosthetic Dental Sciences,\t\nCollege of Dentistry, Jazan University, Saudi Arabia\t\nPhone number: +966-553662853\n",
+            align: TextAlign.left,
+          ),
+          English(
+            normal:
+                "2: Dr Hytham Fageeh\nAssistant Professor\nDepartment of Preventive Dental Sciences,\nCollege of Dentistry, Jazan University, Saudi Arabia\n",
+          align: TextAlign.left,
+          ),
+          English(
+            normal: "3: Dr Hamza Khan                                                 \n",
+            align: TextAlign.left,
+          ),
+          English(
+            normal: "4: Dr Abdulrahman Akkam                                                 \n",
+            align: TextAlign.left,
+          ),
+          English(
+            normal: "5:Dr Idris Muhaddili                                                 \n",
+            align: TextAlign.left,
+          ),
+          English(
+            normal: "6: Dr Sultan Korairi                                                 \n",
+            align: TextAlign.left,
+          ),
+        ],
       );
     } else if (_value == 2) {
-      return Arabic(
-        arabic:
-            "تم تطوير والديون وقد, كرسي مدينة بالرغم عن لكل. المحيط واقتصار وفي تم, عالمية العالم في مدن. كل الا والفلبين الاندونيسية, قتيل، مهمّات ومن إذ, جهة من الفترة ارتكبها الشتوية. أما ثم أمّا بأيدي, لعملة الأرواح الأبرياء ان وصل. تعديل مدينة العدّ وقد عن. الهادي التحالف الإمتعاض حدى ما, عن جهة الأحمر وأكثرها.تشكيل تحرير الطريق قام ما, فمرّ إعادة الإيطالية أضف ٣٠, فقد بـ مقاومة الفرنسية. إعمار المسرح الوزراء ذلك أي, العصبة لليابان التاريخ، إذ ولم, مع جهة أسيا الإحتفاظ. وإيطالي الربيع، هذه قد, إيو بـ مشروط بلديهما الشّعبين. بل بال علاقة بولندا، الأمريكية, هذه مع حلّت لعدم الثالث. تحرير بتخصيص بل دار, أن قام كانت دأبوا الشرقي, ثم ويتّفق لإنعدام الا. مدن إذ عشوائية بالسيطرة الأوروبيّون, أضف أن الهادي استمرار. قررت وحرمان والفلبين ذلك تم, لم وأزيز العالمي الأثناء، بعض, فعل أم هنا؟ أحدث للحك أي معقل كُلفة أخذ, كما في مرمى للمجهود. فصل أم وبدأت وعُرفت, أدنى الشرق، أي",
+      return Column(
+        children: [
+          Arab(
+            boldtext: "اتصل بنا:\n",
+            normal:
+                "1. الدكتور منور أحمد منصور\nأستاذ مساعد\nقسم علوم الأسنان الاصطناعية،\nكلية طب الأسنان، جامعة جازان، المملكة العربية السعودية\nرقم الهاتف:- 553662853 966+\n",
+          ),
+          Arab(
+            normal: "2. الدكتور هيثم  فقيه\nأستاذ مساعد\nقسم علوم الأسنان الوقائية،\nكلية طب الأسنان، جامعة جازان، المملكة العربية السعودية\n",
+          ),
+          Arab(
+            normal: "3. الدكتور حمزة خان                                                               \n",
+          ),
+          Arab(
+            normal: "4. الدكتور عبدالرحمن  العكام                                                               \n",
+          ),
+          Arab(
+            normal: "5. الدكتور أدريس مهدلي                                                                \n",
+          ),
+          Arab(
+            normal: "6. الدكتور سلطان  كريري                                                               \n",
+          ),
+        ],
       );
-      // Text(
-      //   "تم تطوير والديون وقد, كرسي مدينة بالرغم عن لكل. المحيط واقتصار وفي تم, عالمية العالم في مدن. كل الا والفلبين الاندونيسية, قتيل، مهمّات ومن إذ, جهة من الفترة ارتكبها الشتوية. أما ثم أمّا بأيدي, لعملة الأرواح الأبرياء ان وصل. تعديل مدينة العدّ وقد عن. الهادي التحالف الإمتعاض حدى ما, عن جهة الأحمر وأكثرها.تشكيل تحرير الطريق قام ما, فمرّ إعادة الإيطالية أضف ٣٠, فقد بـ مقاومة الفرنسية. إعمار المسرح الوزراء ذلك أي, العصبة لليابان التاريخ، إذ ولم, مع جهة أسيا الإحتفاظ. وإيطالي الربيع، هذه قد, إيو بـ مشروط بلديهما الشّعبين. بل بال علاقة بولندا، الأمريكية, هذه مع حلّت لعدم الثالث. تحرير بتخصيص بل دار, أن قام كانت دأبوا الشرقي, ثم ويتّفق لإنعدام الا. مدن إذ عشوائية بالسيطرة الأوروبيّون, أضف أن الهادي استمرار. قررت وحرمان والفلبين ذلك تم, لم وأزيز العالمي الأثناء، بعض, فعل أم هنا؟ أحدث للحك أي معقل كُلفة أخذ, كما في مرمى للمجهود. فصل أم وبدأت وعُرفت, أدنى الشرق، أي",
-      //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-      // );
     }
+  }
+}
+
+class Arab extends StatelessWidget {
+  String? boldtext;
+  String? normal;
+  TextAlign? align;
+  Arab({
+    Key? key,
+    this.boldtext,
+    this.normal,
+    this.align
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text.rich(
+      TextSpan(
+        text: boldtext,
+        style: const TextStyle(
+          fontFamily: 'Almarai',
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+        ),
+        children: [
+          TextSpan(
+            text: normal,
+            style: const TextStyle(
+                fontFamily: 'Almarai',
+                fontSize: 18,
+                fontWeight: FontWeight.w400),
+          ),
+        ],
+      ),
+      textAlign: TextAlign.justify,
+      textDirection: TextDirection.rtl,
+      softWrap: true,
+    );
+  }
+}
+
+class English extends StatelessWidget {
+  String? boldtext;
+  String? normal;
+  TextAlign? align;
+  English({Key? key, this.boldtext, this.normal, this.align}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text.rich(
+      TextSpan(
+        text: boldtext,
+        style: const TextStyle(
+            fontFamily: 'Poppins', fontSize: 17, fontWeight: FontWeight.bold),
+        children: [
+          TextSpan(
+            text: normal,
+            style: const TextStyle(
+                fontFamily: 'Poppins',
+                fontSize: 17,
+                fontWeight: FontWeight.w400),
+          ),
+        ],
+      ),
+      textAlign: align,
+      softWrap: true,
+      textDirection: TextDirection.ltr,
+    );
   }
 }

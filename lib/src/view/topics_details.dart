@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, unused_local_variable, prefer_const_constructors, prefer_const_constructors_in_immutables, prefer_typing_uninitialized_variables
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:marquee/marquee.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:telesmile/src/constants/loggers.dart';
 import 'package:telesmile/src/models/topic_details_model.dart';
@@ -49,15 +52,24 @@ class _TopicDetailsState extends State<TopicDetails> {
           )
         : Scaffold(
             //*!AppBar Having Title
-            appBar: Header(topicDetails.resultArray[0].title),
-            // AppBar(
-            //   title: AppText(heading: topicDetails.resultArray[0].title),
-            //   backgroundColor: Colors.transparent,
-            //   elevation: 0.0,
-            //   iconTheme: const IconThemeData(color: Colors.black),
-            //   centerTitle: true,
-            // ),
+            appBar: AppBar(
+              title: SizedBox(
+                height: 50,
+                child: Marquee(
+                  text: topicDetails.resultArray[0].title,
+                  style: const TextStyle(
+                      color: Colors.black, fontWeight: FontWeight.bold),
+                  blankSpace: 50,
+                  velocity: 100.0,
+                ),
+              ),
+              backgroundColor: Colors.transparent,
+              elevation: 0.0,
+              iconTheme: const IconThemeData(color: Colors.black),
+              centerTitle: true,
+            ),
             body: SingleChildScrollView(
+              physics: ScrollPhysics(),
               child: Padding(
                 padding: const EdgeInsets.only(left: 12.0, right: 12.0),
                 // padding: EdgeInsets.zero,
@@ -120,8 +132,9 @@ class _TopicDetailsState extends State<TopicDetails> {
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                               width: 3, color: const Color(0xFFFCB117)),
-                          image: const DecorationImage(
-                            image: AssetImage('assets/blind men.png'),
+                          image: DecorationImage(
+                            image: CachedNetworkImageProvider(
+                                topicDetails.resultArray[0].titleImage),
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -165,8 +178,8 @@ class _TopicDetailsState extends State<TopicDetails> {
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                               width: 3, color: const Color(0xFFFCB117)),
-                          image: const DecorationImage(
-                            image: AssetImage('assets/blind men.png'),
+                          image: DecorationImage(
+                            image: CachedNetworkImageProvider(topicDetails.resultArray[0].titleImage),
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -191,18 +204,20 @@ class _TopicDetailsState extends State<TopicDetails> {
                           context,
                           MaterialPageRoute(
                             builder: (context) => AudioPage(
-                                audiolink:
-                                    topicDetails.resultArray[0].audioLink),
+                              audiolink: topicDetails.resultArray[0].audioLink,
+                            ),
                           ),
                         );
+                        logger.d("[Topic Details] audiolink data: " +
+                            topicDetails.resultArray[0].audioLink);
                       },
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
                               width: 3, color: const Color(0xFFFCB117)),
-                          image: const DecorationImage(
-                            image: AssetImage('assets/blind men.png'),
+                          image: DecorationImage(
+                            image: CachedNetworkImageProvider(topicDetails.resultArray[0].titleImage),
                             fit: BoxFit.fill,
                           ),
                         ),

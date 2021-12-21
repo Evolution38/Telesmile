@@ -8,16 +8,16 @@ import 'package:rxdart/rxdart.dart';
 
 import 'audio_player_buttons.dart';
 
-class AudioPage extends StatefulWidget {
-  String? audiolink;
+class HomeAudioPage extends StatefulWidget {
+  List<AudioSource> audioList = [];
 
-  AudioPage({Key? key, this.audiolink}) : super(key: key);
+  HomeAudioPage(this.audioList, {Key? key}) : super(key: key);
 
   @override
-  _AudioPageState createState() => _AudioPageState();
+  _HomeAudioPageState createState() => _HomeAudioPageState();
 }
 
-class _AudioPageState extends State<AudioPage> {
+class _HomeAudioPageState extends State<HomeAudioPage> {
   AudioPlayer? _audioPlayer;
   late Stream<DurationState> _durationState;
   // List<AudioSource> audioList = [
@@ -27,7 +27,7 @@ class _AudioPageState extends State<AudioPage> {
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
-        _durationState = Rx.combineLatest2<Duration, PlaybackEvent, DurationState>(
+    _durationState = Rx.combineLatest2<Duration, PlaybackEvent, DurationState>(
         _audioPlayer!.positionStream,
         _audioPlayer!.playbackEventStream,
         (position, playbackEvent) => DurationState(
@@ -35,13 +35,8 @@ class _AudioPageState extends State<AudioPage> {
               buffered: playbackEvent.bufferedPosition,
               total: playbackEvent.duration,
             ));
-    _audioPlayer!.setAudioSource(
-      ConcatenatingAudioSource(children: [
-        AudioSource.uri(
-          Uri.parse(widget.audiolink! /*'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'*/),
-        )
-      ]),
-    );
+    _audioPlayer!
+        .setAudioSource(ConcatenatingAudioSource(children: widget.audioList));
   }
 
   @override
@@ -73,7 +68,7 @@ class _AudioPageState extends State<AudioPage> {
     );
   }
 
-    StreamBuilder<DurationState> _progressBar() {
+  StreamBuilder<DurationState> _progressBar() {
     return StreamBuilder<DurationState>(
       stream: _durationState,
       builder: (context, snapshot) {
@@ -107,5 +102,3 @@ class DurationState {
   final Duration buffered;
   final Duration? total;
 }
-
-

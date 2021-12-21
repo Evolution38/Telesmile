@@ -9,7 +9,6 @@ import 'package:just_audio/just_audio.dart';
 import 'package:telesmile/src/constants/loggers.dart';
 import 'package:telesmile/src/models/get_category_model.dart';
 import 'package:telesmile/src/services/http_services.dart';
-import 'package:telesmile/src/view/audio/audio.dart';
 
 import 'package:telesmile/src/view/contactus.dart';
 import 'package:telesmile/src/view/drawerpage/drawer.dart';
@@ -18,6 +17,7 @@ import 'package:telesmile/src/view/widgets/appbar.dart';
 import 'package:telesmile/src/view/widgets/texts.dart';
 
 import 'src/models/topic_model.dart';
+import 'src/view/audio/home_audio.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Duration timeout = Duration(seconds: 10);
-  List blindaudios = [];
+  List<AudioSource> audiolinks = [];
   bool blind = true;
   var getCategory;
   bool isLoading = true;
@@ -53,20 +53,21 @@ class _HomePageState extends State<HomePage> {
 
   Future duration(BuildContext context) async {
     await Future.delayed(
-      Duration(seconds: 7),
+      Duration(seconds: 15),
       () {
         for (var i = 0; i < topics.resultArray[0].topic.length; i++) {
-          blindaudios.add(topics.resultArray[0].topic[i].audioLink);
+          audiolinks.add(AudioSource.uri(Uri.parse((topics.resultArray[0].topic[i].audioLink))));
         }
         setState(
           () {
             if (blind == true) {
+              logger.d("[Home Page blind audio data :]"+ audiolinks[1].toString());
               logger.d("[HomePage] boolean data: " + blind.toString());
               showDialog(
                 context: context,
-                builder: (BuildContext context) => AudioPage(
-                    audiolink:
-                        'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3' /*'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'*/),
+                builder: (BuildContext context) => HomeAudioPage(
+                   audiolinks, /*'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'*/
+                ),
               );
             }
           },
