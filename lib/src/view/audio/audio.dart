@@ -3,8 +3,9 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:telesmile/src/view/widgets/header.dart';
+
 import 'package:rxdart/rxdart.dart';
+import 'package:telesmile/src/view/widgets/widgets.dart';
 
 import 'audio_player_buttons.dart';
 
@@ -20,14 +21,11 @@ class AudioPage extends StatefulWidget {
 class _AudioPageState extends State<AudioPage> {
   AudioPlayer? _audioPlayer;
   late Stream<DurationState> _durationState;
-  // List<AudioSource> audioList = [
-  //   AudioSource.uri(Uri.parse(""))
-  // ];
   @override
   void initState() {
     super.initState();
     _audioPlayer = AudioPlayer();
-        _durationState = Rx.combineLatest2<Duration, PlaybackEvent, DurationState>(
+    _durationState = Rx.combineLatest2<Duration, PlaybackEvent, DurationState>(
         _audioPlayer!.positionStream,
         _audioPlayer!.playbackEventStream,
         (position, playbackEvent) => DurationState(
@@ -38,7 +36,8 @@ class _AudioPageState extends State<AudioPage> {
     _audioPlayer!.setAudioSource(
       ConcatenatingAudioSource(children: [
         AudioSource.uri(
-          Uri.parse(widget.audiolink! /*'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'*/),
+          Uri.parse(widget
+              .audiolink! /*'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'*/),
         )
       ]),
     );
@@ -73,7 +72,7 @@ class _AudioPageState extends State<AudioPage> {
     );
   }
 
-    StreamBuilder<DurationState> _progressBar() {
+  StreamBuilder<DurationState> _progressBar() {
     return StreamBuilder<DurationState>(
       stream: _durationState,
       builder: (context, snapshot) {
@@ -107,5 +106,3 @@ class DurationState {
   final Duration buffered;
   final Duration? total;
 }
-
-

@@ -29,7 +29,6 @@ environment:
 dependencies:
   audio_video_progress_bar: ^0.10.0
   cached_network_image: ^3.2.0
-  chewie: ^1.2.2
   cupertino_icons: ^1.0.2
   flick_video_player: ^0.3.1
   flutter:

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:telesmile/home.dart';
 
-import '../about.dart';
-import '../contactus.dart';
+import 'about.dart';
+import 'contactus.dart';
 
 
 

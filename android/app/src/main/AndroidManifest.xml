@@ -2,7 +2,7 @@
     package="com.example.telesmile">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="telesmile"
+        android:label="Telesmile"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
         <activity

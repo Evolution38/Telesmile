@@ -5,8 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:telesmile/src/constants/loggers.dart';
 import 'package:telesmile/src/models/topic_model.dart';
 import 'package:telesmile/src/services/http_services.dart';
-import 'package:telesmile/src/view/widgets/appbar.dart';
-import 'package:telesmile/src/view/widgets/texts.dart';
+import 'package:telesmile/src/view/widgets/widgets.dart';
 
 import 'topics_details.dart';
 

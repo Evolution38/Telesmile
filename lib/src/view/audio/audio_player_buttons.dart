@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:telesmile/src/constants/loggers.dart';
 
 class PlayerButtons extends StatefulWidget {
   PlayerButtons(this._audioPlayer, {Key? key}) : super(key: key);
 
   late AudioPlayer _audioPlayer;
-
   @override
   State<PlayerButtons> createState() => _PlayerButtonsState();
 }
@@ -33,8 +33,8 @@ class _PlayerButtonsState extends State<PlayerButtons> {
         StreamBuilder<PlayerState>(
           stream: widget._audioPlayer.playerStateStream,
           builder: (_, snapshot) {
-            final playerState = snapshot.data;
-            return _playPauseButton(playerState!);
+            final playerState = snapshot.data!;
+            return _playPauseButton(playerState);
           },
         ),
         StreamBuilder<SequenceState?>(
@@ -54,7 +54,9 @@ class _PlayerButtonsState extends State<PlayerButtons> {
   }
 
   Widget _playPauseButton(PlayerState playerState) {
+    // logger.i("Play Pasue button called");
     final processingState = playerState.processingState;
+    // widget._audioPlayer.playing = true;
     if (processingState == ProcessingState.loading ||
         processingState == ProcessingState.buffering) {
       return Container(
@@ -62,6 +64,13 @@ class _PlayerButtonsState extends State<PlayerButtons> {
         width: 64.0,
         height: 64.0,
         child: const CircularProgressIndicator(),
+      );
+    } else if (processingState == ProcessingState.ready) {
+      widget._audioPlayer.play();
+      return IconButton(
+        icon: const Icon(Icons.pause),
+        iconSize: 64.0,
+        onPressed: widget._audioPlayer.pause,
       );
     } else if (widget._audioPlayer.playing != true) {
       return IconButton(

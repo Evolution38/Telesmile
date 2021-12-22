@@ -3,17 +3,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:marquee/marquee.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:telesmile/src/constants/loggers.dart';
 import 'package:telesmile/src/models/topic_details_model.dart';
 import 'package:telesmile/src/services/http_services.dart';
-import 'package:telesmile/src/view/video.dart';
-import 'package:telesmile/src/view/widgets/header.dart';
-import 'package:telesmile/src/view/widgets/texts.dart';
+import 'package:telesmile/src/view/widgets/widgets.dart';
 
-import 'audio/audio.dart';
+import '../audio/audio.dart';
 import 'image.dart';
 
 class TopicDetails extends StatefulWidget {
@@ -60,7 +57,7 @@ class _TopicDetailsState extends State<TopicDetails> {
                   style: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                   blankSpace: 50,
-                  velocity: 100.0,
+                  velocity: 50.0,
                 ),
               ),
               backgroundColor: Colors.transparent,

@@ -3,7 +3,7 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:telesmile/src/view/widgets/header.dart';
+import 'package:telesmile/src/view/widgets/widgets.dart';
 import 'package:rxdart/rxdart.dart';
 
 import 'audio_player_buttons.dart';

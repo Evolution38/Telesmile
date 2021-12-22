@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:telesmile/src/view/audio/audio.dart';
 import 'package:telesmile/src/view/widgets/navscreen.dart';
-import 'package:telesmile/test.dart';
 
 void main() {
   runApp(MyApp());

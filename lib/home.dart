@@ -10,9 +10,9 @@ import 'package:telesmile/src/constants/loggers.dart';
 import 'package:telesmile/src/models/get_category_model.dart';
 import 'package:telesmile/src/services/http_services.dart';
 
-import 'package:telesmile/src/view/contactus.dart';
+import 'package:telesmile/src/view/widgets/contactus.dart';
 import 'package:telesmile/src/view/drawerpage/drawer.dart';
-import 'package:telesmile/src/view/topics.dart';
+import 'package:telesmile/src/view/widgets/topics.dart';
 import 'package:telesmile/src/view/widgets/appbar.dart';
 import 'package:telesmile/src/view/widgets/texts.dart';
 
