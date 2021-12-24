@@ -10,7 +10,6 @@ import 'package:telesmile/src/constants/loggers.dart';
 import 'package:telesmile/src/models/get_category_model.dart';
 import 'package:telesmile/src/services/http_services.dart';
 
-import 'package:telesmile/src/view/widgets/contactus.dart';
 import 'package:telesmile/src/view/drawerpage/drawer.dart';
 import 'package:telesmile/src/view/widgets/topics.dart';
 import 'package:telesmile/src/view/widgets/appbar.dart';
@@ -18,6 +17,7 @@ import 'package:telesmile/src/view/widgets/texts.dart';
 
 import 'src/models/topic_model.dart';
 import 'src/view/audio/home_audio.dart';
+import 'src/view/widgets/consultation_form.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -171,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                   ElevatedButton.icon(
                     onPressed: () {
                       Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ContactUs()));
+                          MaterialPageRoute(builder: (context) => Consultation_form()));
                     },
                     icon: Icon(
                       Icons.call,
@@ -184,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                           borderRadius: BorderRadius.circular(10),
                         )),
                     label: Text(
-                      'Contact Us',
+                      'Telesmile Consultation',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

@@ -47,15 +47,19 @@ class _HomeAudioPageState extends State<HomeAudioPage> {
 
   @override
   Widget build(BuildContext context) {
+    _audioPlayer!.play();
     return Scaffold(
       appBar: Header('Audio'),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         // ignore: prefer_const_literals_to_create_immutables
         children: [
-          const Image(
-            image: AssetImage(
-              'assets/Group 21.png',
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12),
+            child: Image(
+              image: AssetImage(
+                'assets/Group 21.png',
+              ),
             ),
           ),
           Padding(
