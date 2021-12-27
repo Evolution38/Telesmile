@@ -1,10 +1,9 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, must_be_immutable
 
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import 'drawer.dart';
 import '../widgets/header.dart';
 
 class PrivacyPolicy extends StatefulWidget {
@@ -135,7 +134,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
           const SizedBox(height: 25),
           Arab(
             boldtext: "إفشاء وتوزيع المعلومات الخاصة بك\n",
-            normal: "قد نشارك معلوماتك التي نجمعها للأغراض التالية:\مع مقدمي الخدمات: قد نشارك معلوماتك مع أطباء الأسنان العامين والمتخصصين والاستشاريين. ",
+            normal: "قد نشارك معلوماتك التي نجمعها للأغراض التالية:\nمع مقدمي الخدمات: قد نشارك معلوماتك مع أطباء الأسنان العامين والمتخصصين والاستشاريين. ",
           ),
           const SizedBox(height: 25),
           Arab(

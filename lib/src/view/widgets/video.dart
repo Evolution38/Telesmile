@@ -1,4 +1,6 @@
-// ignore_for_file: unused_field, prefer_const_constructors, must_be_immutable
+
+
+// ignore_for_file: must_be_immutable
 
 import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +17,7 @@ class VideoPlayerScreen extends StatefulWidget {
 
 class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   FlickManager? flickManager;
-  VideoPlayerController? _controller;
+  // VideoPlayerController? _controller;
 
   @override
   void initState() {
@@ -40,16 +42,15 @@ class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Video',style: TextStyle(color: Colors.transparent),),
+        title: const Text('Video',style: TextStyle(color: Colors.transparent),),
         backgroundColor: Colors.transparent,
       ),
       extendBodyBehindAppBar: true,
       body: FlickVideoPlayer(
+        wakelockEnabledFullscreen: true,
         wakelockEnabled: true,
         flickManager: flickManager!,
-        
-        // ignore: prefer_const_literals_to_create_immutables
-        preferredDeviceOrientationFullscreen: [
+        preferredDeviceOrientationFullscreen: const [
           DeviceOrientation.landscapeRight,
           DeviceOrientation.landscapeLeft,
         ],

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, must_be_immutable
 
 import 'package:flutter/material.dart';
 import '../widgets/header.dart';
@@ -122,8 +122,8 @@ class _TermsUseState extends State<TermsUse> {
           ),
           Arab(
             boldtext: "1. ",
-            normal: "هذه الشروط والأحكام الاستخدام  ('شروط الاستخدام')  وصف المصطلحات المطبقة على استخدامك لهذا التطبيق الرقمي لأغراض استخدام وتعزيز حالة صحة الفم وممارسة نظافة الفم بين المجتمع المعوقين.",
-            align: TextAlign.justify,
+            normal: "هذه الشروط والأحكام الاستخدام ('شروط الاستخدام') وصف المصطلحات المطبقة على استخدامك لهذا التطبيق الرقمي لأغراض استخدام وتعزيز حالة صحة الفم وممارسة نظافة الفم بين المجتمع المعوقين.",
+            // align: TextAlign.justify,
           ),
           Arab(
             boldtext: "2. حقوق الملكية الفكرية                                                           \n",

@@ -55,7 +55,7 @@ class Category {
     String? catDesc;
     String? catArabDesc;
     String? catImg;
-    dynamic? createdon;
+    dynamic createdon;
 
     factory Category.fromJson(Map<String, dynamic> json) => Category(
         catId: json["cat_id"],
