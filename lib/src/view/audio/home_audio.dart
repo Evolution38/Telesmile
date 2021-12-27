@@ -3,6 +3,7 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:telesmile/src/view/audio/seek_bar.dart';
 import 'package:telesmile/src/view/widgets/widgets.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -45,6 +46,14 @@ class _HomeAudioPageState extends State<HomeAudioPage> {
     super.dispose();
   }
 
+   Stream<PositionData> get _positionDataStream =>
+      Rx.combineLatest3<Duration, Duration, Duration?, PositionData>(
+          _audioPlayer!.positionStream,
+          _audioPlayer!.bufferedPositionStream,
+          _audioPlayer!.durationStream,
+          (position, bufferedPosition, duration) => PositionData(
+              position, bufferedPosition, duration ?? Duration.zero));
+
   @override
   Widget build(BuildContext context) {
     _audioPlayer!.play();
@@ -62,10 +71,23 @@ class _HomeAudioPageState extends State<HomeAudioPage> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: _progressBar(),
+          StreamBuilder<PositionData>(
+            stream: _positionDataStream,
+            builder: (context, snapshot) {
+              final positionData = snapshot.data;
+              return SeekBar(
+                duration: positionData?.duration ?? Duration.zero,
+                position: positionData?.position ?? Duration.zero,
+                bufferedPosition:
+                    positionData?.bufferedPosition ?? Duration.zero,
+                onChangeEnd: _audioPlayer!.seek,
+              );
+            },
           ),
+          // Padding(
+          //   padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          //   child: _progressBar(),
+          // ),
           PlayerButtons(_audioPlayer!)
         ],
       ),

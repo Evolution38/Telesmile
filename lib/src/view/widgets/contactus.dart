@@ -81,30 +81,31 @@ class _ContactUsState extends State<ContactUs> {
       return Column(
         children: [
           English(
-            boldtext: "CONTACT US:\n",
+            boldtext: "CONTACT US:\n1) Dr Manawar Ahmad Mansoor\n",
             normal:
-                "1:\tDr Manawar Ahmad Mansoor\nAssistant Professor\t\nDepartment of Prosthetic Dental Sciences,\t\nCollege of Dentistry, Jazan University, Saudi Arabia\t\nPhone number: +966-553662853\n",
+                "Assistant Professor\t\nDepartment of Prosthetic Dental Sciences,\t\nCollege of Dentistry, Jazan University, Saudi Arabia\t\nPhone number: +966-553662853\n",
             align: TextAlign.left,
           ),
           English(
+            boldtext:"2) Dr Hytham Fageeh\n",
             normal:
-                "2: Dr Hytham Fageeh\nAssistant Professor\nDepartment of Preventive Dental Sciences,\nCollege of Dentistry, Jazan University, Saudi Arabia\n",
+                "Assistant Professor\nDepartment of Preventive Dental Sciences,\nCollege of Dentistry, Jazan University, Saudi Arabia\n",
           align: TextAlign.left,
           ),
           English(
-            normal: "3: Dr Hamza Khan                                                 \n",
+            boldtext: "3) Dr Hamza Khan                                                 \n",
             align: TextAlign.left,
           ),
           English(
-            normal: "4: Dr Abdulrahman Akkam                                                 \n",
+            boldtext: "4) Dr Abdulrahman Akkam                                                 \n",
             align: TextAlign.left,
           ),
           English(
-            normal: "5:Dr Idris Muhaddili                                                 \n",
+            boldtext: "5) Dr Idris Muhaddili                                                 \n",
             align: TextAlign.left,
           ),
           English(
-            normal: "6: Dr Sultan Korairi                                                 \n",
+            boldtext: "6) Dr Sultan Korairi                                                 \n",
             align: TextAlign.left,
           ),
         ],

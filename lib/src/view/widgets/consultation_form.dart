@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:image_picker/image_picker.dart';
 import 'package:telesmile/src/constants/loggers.dart';
 import 'package:telesmile/src/view/widgets/header.dart';
@@ -66,7 +66,7 @@ class _Consultation_formState extends State<Consultation_form> {
                     child: TextFormField(
                       controller: _name,
                       keyboardType: TextInputType.text,
-                      decoration: buildInputDecoration('enter name'),
+                      decoration: buildInputDecoration('Enter name'),
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return "Please enter name";
@@ -102,7 +102,7 @@ class _Consultation_formState extends State<Consultation_form> {
                     child: TextFormField(
                       controller: _constactnumber,
                       keyboardType: TextInputType.number,
-                      decoration: buildInputDecoration('enter contact number'),
+                      decoration: buildInputDecoration('Enter contact number'),
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return "Please enter contact number";
@@ -152,7 +152,7 @@ class _Consultation_formState extends State<Consultation_form> {
                     child: TextFormField(
                       controller: _age,
                       keyboardType: TextInputType.number,
-                      decoration: buildInputDecoration('enter age'),
+                      decoration: buildInputDecoration('Enter age'),
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return "Please enter age";
@@ -167,7 +167,7 @@ class _Consultation_formState extends State<Consultation_form> {
                     child: TextFormField(
                       controller: _place,
                       keyboardType: TextInputType.text,
-                      decoration: buildInputDecoration('enter place'),
+                      decoration: buildInputDecoration('Enter place'),
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return "Please enter Place";
@@ -193,6 +193,7 @@ class _Consultation_formState extends State<Consultation_form> {
                       // },
                     ),
                   ),
+                  labletext('Intra-oral photographs'),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 6),
                     child: ElevatedButton(
@@ -220,9 +221,8 @@ class _Consultation_formState extends State<Consultation_form> {
                           }
                         },
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50.0),
-                            side:
-                                const BorderSide(color: Colors.blue, width: 2)),
+                          borderRadius: BorderRadius.circular(50.0),
+                        ),
                         textColor: Colors.white,
                         child: const Text("Submit"),
                       ),
@@ -274,7 +274,7 @@ class _Consultation_formState extends State<Consultation_form> {
     }
     // var imagefile = _image!.readAsBytes();
     // url to registration php script
-    var APIURL = "http://studyleagueit.com/telesmile/app_apis/form.php";
+    var APIURL = "http://telesmile.co.in/app_apis/form.php";
     //json maping user entered details
     Map formdata = {
       'name': _name.text,
@@ -286,10 +286,10 @@ class _Consultation_formState extends State<Consultation_form> {
       'image': images.toString()
     };
     //send  data using http post to our php code
-    http.Response reponse = await http.post(Uri.parse(APIURL), body: formdata);
+    http.Response response = await http.post(Uri.parse(APIURL), body: formdata);
 
     //getting response from php code, here
-    var data = jsonDecode(reponse.body);
+    var data = jsonDecode(response.body);
     logger.e("DATA: ${data}");
     logger.e("[Consultation form] imageformat data: " + images.toString());
   }

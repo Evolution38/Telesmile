@@ -56,17 +56,19 @@ class _HomePageState extends State<HomePage> {
       Duration(seconds: 15),
       () {
         for (var i = 0; i < topics.resultArray[0].topic.length; i++) {
-          audiolinks.add(AudioSource.uri(Uri.parse((topics.resultArray[0].topic[i].audioLink))));
+          audiolinks.add(AudioSource.uri(
+              Uri.parse((topics.resultArray[0].topic[i].audioLink))));
         }
         setState(
           () {
             if (blind == true) {
-              logger.d("[Home Page blind audio data :]"+ audiolinks[1].toString());
+              logger.d(
+                  "[Home Page blind audio data :]" + audiolinks[1].toString());
               logger.d("[HomePage] boolean data: " + blind.toString());
               showDialog(
                 context: context,
                 builder: (BuildContext context) => HomeAudioPage(
-                   audiolinks, /*'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'*/
+                  audiolinks, /*'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'*/
                 ),
               );
             }
@@ -170,8 +172,13 @@ class _HomePageState extends State<HomePage> {
                   ),
                   ElevatedButton.icon(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Consultation_form()));
+                      setState(() {
+                        blind = false;
+                      });
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Consultation_form()));
                     },
                     icon: Icon(
                       Icons.call,
