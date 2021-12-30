@@ -20,7 +20,6 @@ class Consultation_form extends StatefulWidget {
 class _Consultation_formState extends State<Consultation_form> {
   String? choosevalue = "Male";
   final TextEditingController _name = TextEditingController();
-  // final TextEditingController _email = TextEditingController();
   final TextEditingController _constactnumber = TextEditingController();
   final TextEditingController _age = TextEditingController();
   final TextEditingController _place = TextEditingController();
@@ -36,12 +35,6 @@ class _Consultation_formState extends State<Consultation_form> {
       _image = image;
     });
   }
-  // _imageFromGallery() async {
-  //   XFile? image = await imagePicker.pickImage(source: ImageSource.gallery);
-  //   setState(() {
-  //     _image = image;
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -76,26 +69,6 @@ class _Consultation_formState extends State<Consultation_form> {
                       onSaved: (String? name) {},
                     ),
                   ),
-                  // labletext('Email'),
-                  // Padding(
-                  //   padding: const EdgeInsets.only(bottom: 15, top: 6),
-                  //   child: TextFormField(
-                  //     controller: _email,
-                  //     keyboardType: TextInputType.text,
-                  //     decoration: buildInputDecoration('enter email id'),
-                  //     validator: (String? value) {
-                  //       if (value!.isEmpty) {
-                  //         return "Please enter  email";
-                  //       }
-                  //       if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                  //           .hasMatch(value)) {
-                  //         return "Please enter valid email";
-                  //       }
-                  //       return null;
-                  //     },
-                  //     onSaved: (String? email) {},
-                  //   ),
-                  // ),
                   labletext('Contact Number'),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 6),
@@ -140,7 +113,6 @@ class _Consultation_formState extends State<Consultation_form> {
                         onChanged: (String? newValue) {
                           setState(() {
                             choosevalue = newValue;
-                            // state.didChange(newValue);
                           });
                         },
                       ),
@@ -185,12 +157,6 @@ class _Consultation_formState extends State<Consultation_form> {
                       maxLines: 13,
                       keyboardType: TextInputType.text,
                       decoration: buildInputDecoration(''),
-                      // validator: (String? value) {
-                      //   if (value!.isEmpty) {
-                      //     return "Please enter Complaint";
-                      //   }
-                      //   return null;
-                      // },
                     ),
                   ),
                   labletext('Intra-oral photographs'),
@@ -274,7 +240,7 @@ class _Consultation_formState extends State<Consultation_form> {
     }
     // var imagefile = _image!.readAsBytes();
     // url to registration php script
-    var APIURL = "http://telesmile.co.in/app_apis/form.php";
+    var APIURL = "http://telesmile.co.in/app_apis/form.php" ;
     //json maping user entered details
     Map formdata = {
       'name': _name.text,
@@ -288,6 +254,15 @@ class _Consultation_formState extends State<Consultation_form> {
     //send  data using http post to our php code
     http.Response response = await http.post(Uri.parse(APIURL), body: formdata);
 
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      content: Text("Form Submitted"),
+    ));
+    _age.clear();
+    _name.clear();
+    _complaint.clear();
+    _place.clear();
+    _constactnumber.clear();
+    _image!.clear();
     //getting response from php code, here
     var data = jsonDecode(response.body);
     logger.e("DATA: ${data}");

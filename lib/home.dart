@@ -1,12 +1,12 @@
 // ignore_for_file: prefer_const_constructors_in_immutables, prefer_const_literals_to_create_immutables, prefer_const_constructors, must_be_immutable, avoid_unnecessary_containers, non_constant_identifier_names, prefer_typing_uninitialized_variables
 
 // import 'package:cached_network_image/cached_network_image.dart';
-import 'dart:async';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:telesmile/src/constants/loggers.dart';
+import 'package:telesmile/src/controller/blindmode_controller.dart';
 import 'package:telesmile/src/models/get_category_model.dart';
 import 'package:telesmile/src/services/http_services.dart';
 
@@ -15,9 +15,8 @@ import 'package:telesmile/src/view/widgets/topics.dart';
 import 'package:telesmile/src/view/widgets/appbar.dart';
 import 'package:telesmile/src/view/widgets/texts.dart';
 
-import 'src/models/topic_model.dart';
-import 'src/view/audio/home_audio.dart';
 import 'src/view/widgets/consultation_form.dart';
+import 'src/view/widgets/gallery.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -27,9 +26,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Duration timeout = Duration(seconds: 10);
-  List<AudioSource> audiolinks = [];
-  bool blind = true;
+  final blindcontroller = Get.put(Blindmode());
   var getCategory;
   bool isLoading = true;
   loadCategories() async {
@@ -43,46 +40,11 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  var topics;
-  loadTopics(String id) async {
-    var result = await getTopicsModel(id: id);
-    setState(() {
-      topics = TopicsModel.fromJson(result!);
-    });
-  }
-
-  Future duration(BuildContext context) async {
-    await Future.delayed(
-      Duration(seconds: 15),
-      () {
-        for (var i = 0; i < topics.resultArray[0].topic.length; i++) {
-          audiolinks.add(AudioSource.uri(
-              Uri.parse((topics.resultArray[0].topic[i].audioLink))));
-        }
-        setState(
-          () {
-            if (blind == true) {
-              logger.d(
-                  "[Home Page blind audio data :]" + audiolinks[1].toString());
-              logger.d("[HomePage] boolean data: " + blind.toString());
-              showDialog(
-                context: context,
-                builder: (BuildContext context) => HomeAudioPage(
-                  audiolinks, /*'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'*/
-                ),
-              );
-            }
-          },
-        );
-      },
-    );
-  }
-
   @override
   void initState() {
     loadCategories();
-    loadTopics('1');
-    duration(context);
+    blindcontroller.blind(true);
+    blindcontroller.duration(context);
     super.initState();
   }
 
@@ -117,9 +79,7 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.all(8.0),
                         child: InkWell(
                           onTap: () {
-                            setState(() {
-                              blind = false;
-                            });
+                            blindcontroller.blind(false);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -134,16 +94,13 @@ class _HomePageState extends State<HomePage> {
                           child: Column(
                             children: [
                               Expanded(
-                                child: Card(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30.0),
-                                  ),
-                                  child: Container(
-                                    child: Image(
-                                      image: CachedNetworkImageProvider(
-                                          getCategory.category[index].catImg),
-                                      fit: BoxFit.fill,
-                                    ),
+                                child: SizedBox(
+                                  height: MediaQuery.of(context).size.height*0.35,
+                                  width: MediaQuery.of(context).size.width*0.33,
+                                  child: Image(
+                                    image: CachedNetworkImageProvider(
+                                        getCategory.category[index].catImg),
+                                    fit: BoxFit.fill,
                                   ),
                                 ),
                               ),
@@ -172,9 +129,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   ElevatedButton.icon(
                     onPressed: () {
-                      setState(() {
-                        blind = false;
-                      });
+                      blindcontroller.blind(false);
                       Navigator.push(
                           context,
                           MaterialPageRoute(

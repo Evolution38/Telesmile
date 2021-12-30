@@ -1,12 +1,27 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:telesmile/src/controller/blindmode_controller.dart';
 import 'package:telesmile/src/view/drawerpage/privacypolicy.dart';
 import 'package:telesmile/src/view/drawerpage/terms_conditions.dart';
 import 'package:telesmile/src/view/drawerpage/termsuse.dart';
 
-class MyDrawer extends StatelessWidget {
+class MyDrawer extends StatefulWidget {
   const MyDrawer({Key? key}) : super(key: key);
+
+  @override
+  State<MyDrawer> createState() => _MyDrawerState();
+}
+
+class _MyDrawerState extends State<MyDrawer> {
+  final blindcontroller = Get.put(Blindmode());
+
+  @override
+  void initState() {
+    blindcontroller.blind(false);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
