@@ -234,7 +234,7 @@ class _AboutPageState extends State<AboutPage> {
 
           const SizedBox(height: 25),
           EnglishAck(
-            boldtext: '"Oral Health for Autistic children" Project: \n',
+            boldtext: '"Oral Health for childern with Down syndrome" Project: \n',
             wrdspacing: -1.7,
             normal: "1. ",
             underline: "Dr Abdul Kareem College of Dentistry, Jazan",

@@ -95,8 +95,8 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Expanded(
                                 child: SizedBox(
-                                  height: MediaQuery.of(context).size.height*0.35,
-                                  width: MediaQuery.of(context).size.width*0.33,
+                                  height: MediaQuery.of(context).size.height*0.3,
+                                  width: MediaQuery.of(context).size.width*0.3,
                                   child: Image(
                                     image: CachedNetworkImageProvider(
                                         getCategory.category[index].catImg),
