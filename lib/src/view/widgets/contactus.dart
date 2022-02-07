@@ -242,7 +242,7 @@ class _ContactUsState extends State<ContactUs> {
           ),
           Arab(
             boldtext:
-                "عبد الرحمن العكام\n",
+                "عبد الرحمن عكام\n",
                 normal: "متدربة في طب الأسنان ، كلية طب الأسنان ، جامعة جازان ، المملكة العربية السعودية\nرقم الهاتف: + 966-553361546\nالإلكتروني: akkamx4@gmail.com\n",
           ),
 

@@ -53,13 +53,13 @@ class _Consultation_formState extends State<Consultation_form> {
                   const SizedBox(
                     height: 15,
                   ),
-                  labletext('Name'),
+                  labletext('Name (الاسم)'),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 6),
                     child: TextFormField(
                       controller: _name,
                       keyboardType: TextInputType.text,
-                      decoration: buildInputDecoration('Enter name'),
+                      decoration: buildInputDecoration('Enter name (ادخل الاسم)'),
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return "Please enter name";
@@ -69,13 +69,13 @@ class _Consultation_formState extends State<Consultation_form> {
                       onSaved: (String? name) {},
                     ),
                   ),
-                  labletext('Contact Number'),
+                  labletext('Contact Number (رقم التواصل)'),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 6),
                     child: TextFormField(
                       controller: _constactnumber,
                       keyboardType: TextInputType.number,
-                      decoration: buildInputDecoration('Enter contact number'),
+                      decoration: buildInputDecoration('Enter contact number (ادخل رقم التواصل)'),
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return "Please enter contact number";
@@ -88,7 +88,7 @@ class _Consultation_formState extends State<Consultation_form> {
                       onSaved: (String? phone) {},
                     ),
                   ),
-                  labletext('Gender'),
+                  labletext('Gender (الجنس)'),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 6),
                     child: DropdownButtonHideUnderline(
@@ -98,15 +98,15 @@ class _Consultation_formState extends State<Consultation_form> {
                         hint: const Text("Select the gender"),
                         items: const [
                           DropdownMenuItem(
-                            child: Text('Male'),
+                            child: Text('Male (ذكر)'),
                             value: 'Male',
                           ),
                           DropdownMenuItem(
-                            child: Text('Female'),
+                            child: Text('Female (انثى)'),
                             value: 'Female',
                           ),
                           DropdownMenuItem(
-                            child: Text('Others'),
+                            child: Text('Others  (آخر)'),
                             value: 'Others',
                           ),
                         ],
@@ -118,13 +118,13 @@ class _Consultation_formState extends State<Consultation_form> {
                       ),
                     ),
                   ),
-                  labletext('Age'),
+                  labletext('Age (العمر)'),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 6),
                     child: TextFormField(
                       controller: _age,
                       keyboardType: TextInputType.number,
-                      decoration: buildInputDecoration('Enter age'),
+                      decoration: buildInputDecoration('Enter age (ادخل العمر)'),
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return "Please enter age";
@@ -133,13 +133,13 @@ class _Consultation_formState extends State<Consultation_form> {
                       },
                     ),
                   ),
-                  labletext('Place'),
+                  labletext('Place (المكان)'),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 6),
                     child: TextFormField(
                       controller: _place,
                       keyboardType: TextInputType.text,
-                      decoration: buildInputDecoration('Enter place'),
+                      decoration: buildInputDecoration('Enter place (ادخل المكان)'),
                       validator: (String? value) {
                         if (value!.isEmpty) {
                           return "Please enter Place";
@@ -148,7 +148,7 @@ class _Consultation_formState extends State<Consultation_form> {
                       },
                     ),
                   ),
-                  labletext('Chief Complaint'),
+                  labletext('Chief Complaint (الشكوى الأساسية)'),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 6),
                     child: TextFormField(
@@ -159,7 +159,7 @@ class _Consultation_formState extends State<Consultation_form> {
                       decoration: buildInputDecoration(''),
                     ),
                   ),
-                  labletext('Intra-oral photographs'),
+                  labletext('Intra-oral photographs (صور داخل الفم)'),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15, top: 6),
                     child: ElevatedButton(
@@ -190,7 +190,7 @@ class _Consultation_formState extends State<Consultation_form> {
                           borderRadius: BorderRadius.circular(50.0),
                         ),
                         textColor: Colors.white,
-                        child: const Text("Submit"),
+                        child: const Text("Submit (إرسال)"),
                       ),
                     ),
                   )
@@ -249,7 +249,8 @@ class _Consultation_formState extends State<Consultation_form> {
       'place': _place.text,
       'complaint': _complaint.text,
       'gender': choosevalue!.toString(),
-      'image': images.toString()
+      'image': images.toString(),
+      'API_KEY' : 'sXZ7tdYP7hy2qZKD9cL'
     };
     //send  data using http post to our php code
     http.Response response = await http.post(Uri.parse(APIURL), body: formdata);

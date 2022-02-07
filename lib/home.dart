@@ -16,7 +16,6 @@ import 'package:telesmile/src/view/widgets/appbar.dart';
 import 'package:telesmile/src/view/widgets/texts.dart';
 
 import 'src/view/widgets/consultation_form.dart';
-import 'src/view/widgets/gallery.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -68,58 +67,59 @@ class _HomePageState extends State<HomePage> {
                     height: 20,
                   ),
                   GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: MediaQuery.of(context).size.width /
+                            (MediaQuery.of(context).size.height / 1.6)),
                     shrinkWrap: true,
                     physics: ScrollPhysics(),
                     itemCount: getCategory.category.length,
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: InkWell(
-                          onTap: () {
-                            blindcontroller.blind(false);
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => Topics(
-                                    categoryid:
-                                        getCategory.category[index].catId,
-                                    arabicname: getCategory
-                                        .category[index].catArabicTitle),
+                      return InkWell(
+                        onTap: () {
+                          blindcontroller.blind(false);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => Topics(
+                                  categoryid: getCategory.category[index].catId,
+                                  arabicname: getCategory
+                                      .category[index].catArabicTitle),
+                            ),
+                          );
+                        },
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.2,
+                              width: MediaQuery.of(context).size.width * 0.35,
+                              child: Image(
+                                image: CachedNetworkImageProvider(
+                                    getCategory.category[index].catImg),
+                                fit: BoxFit.cover,
                               ),
-                            );
-                          },
-                          child: Column(
-                            children: [
-                              Expanded(
-                                child: SizedBox(
-                                  height: MediaQuery.of(context).size.height*0.3,
-                                  width: MediaQuery.of(context).size.width*0.3,
-                                  child: Image(
-                                    image: CachedNetworkImageProvider(
-                                        getCategory.category[index].catImg),
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
+                            ),
+                            Text(
+                              '(${getCategory.category[index].catArabicTitle})',
+                              style: TextStyle(
+                                fontSize: 15,
                               ),
-                              Text(
-                                getCategory.category[index].catTitle,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                ),
+                            ),
+                            Text(
+                              getCategory.category[index].catTitle,
+                              style: TextStyle(
+                                fontSize: 20,
                               ),
-                              Text(
-                                getCategory.category[index].catSubTitle,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFFFCB117),
-                                ),
+                            ),
+                            Text(
+                              getCategory.category[index].catSubTitle,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFFFCB117),
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       );
                     },
